@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useMemo} from 'react'
 import {
     Form,
     Input,
@@ -8,7 +8,8 @@ import {
     firstNameValidation,
     lastNameValidation,
     phoneValidation,
-    validationMessages as msg
+    validationMessages as msg,
+    anyError
 } from './index'
 import './FirstForm.scss'
 import {connect} from 'react-redux'
@@ -51,6 +52,10 @@ function FirstForm({
     const [email, setEmail] = useState('')
     const [phone, setPhone] = useState('')
 
+    const anyErrorMemo = useMemo(() =>
+            anyError(isFirstNameValid, isLastNameValid, isEmailValid, isPhoneValid),
+        [isFirstNameValid, isLastNameValid, isEmailValid, isPhoneValid])
+
     return(
         <Form className='form form-first'>
             <Input
@@ -89,6 +94,10 @@ function FirstForm({
                 value={phone}
                 hasError={isPhoneValid}
                 errorMessage={msg['phone']}
+            />
+            <Input
+                type='submit'
+                disabled={anyErrorMemo}
             />
         </Form>
     )
