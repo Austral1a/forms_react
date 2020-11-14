@@ -6,12 +6,12 @@ import './SecondForm.scss'
 function SecondForm() {
     return(
         <Form className='form form-second'>
-            <Select>
-                <Option selected={true} value='us' text={'United States'} />
-                <Option value='ua' text={'Ukraine'} />
+            <Select defaultValue='us'>
+                <Option value='us' text='United States' />
+                <Option value='ua' text='Ukraine' />
             </Select>
-            <Select>
-                <Option selected={true} value='free' text='Free' />
+            <Select defaultValue='free'>
+                <Option value='free' text='Free' />
                 <Option value='basic' text='Basic' />
                 <Option value='premium' text='Premium' />
             </Select>
