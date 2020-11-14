@@ -1,8 +1,8 @@
 import React from 'react'
 
-function Select({children}) {
+function Select({defaultValue, children}) {
     return (
-        <select>
+        <select defaultValue={defaultValue}>
             {children}
         </select>
     )
