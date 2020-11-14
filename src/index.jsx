@@ -4,6 +4,8 @@ import {Provider} from 'react-redux'
 import store from './Store/index'
 import './styles/general.scss'
 
+import {BrowserRouter as Router, Route, Redirect ,Switch} from 'react-router-dom'
+
 import FirstForm from './Components/firstForm/FirstForm'
 
 import reportWebVitals from './reportWebVitals';
@@ -11,7 +13,12 @@ import reportWebVitals from './reportWebVitals';
 ReactDOM.render(
   <React.StrictMode>
       <Provider store={store}>
-        <FirstForm />
+          <Router path='/'>
+              <Redirect from='/' to='/first-form' />
+          </Router>
+          <Router path='/first-form'>
+              <FirstForm />
+          </Router>
       </Provider>
   </React.StrictMode>,
   document.getElementById('root')
