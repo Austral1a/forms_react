@@ -1,5 +1,5 @@
 import React from 'react'
-import {Select, Option, Form, Input} from './index'
+import {Select, Option, Form, Input, Card} from './index'
 
 import './SecondForm.scss'
 
@@ -15,6 +15,9 @@ function SecondForm() {
                 <Option value='basic' text='Basic' />
                 <Option value='premium' text='Premium' />
             </Select>
+            <Card>
+
+            </Card>
             <Input
                 type='submit'
             />
