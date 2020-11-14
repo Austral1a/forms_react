@@ -2,13 +2,13 @@ import React from 'react'
 
 function Option({
     value,
-    defaultValue,
+    selected,
     text
 }) {
     return (
         <option
             value={value}
-            defaultValue={}
+            selected={selected}
         >
             {text}
         </option>
