@@ -4,11 +4,12 @@ import '../../styles/Form.scss'
 function Form({
                   children,
                   onSubmit,
-                  action
+                  action,
+                  className
               }) {
     return(
         <form
-            className='form'
+            className={className}
             action={action}
             onSubmit={onSubmit}
         >
