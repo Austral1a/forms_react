@@ -6,6 +6,7 @@ function Option({
 }) {
     return (
         <option
+            className='select__option'
             value={value}
         >
             {text}
