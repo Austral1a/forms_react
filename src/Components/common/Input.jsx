@@ -3,17 +3,17 @@ import React from 'react'
 import '../../styles/Input.scss'
 
 function Input({
-                   label,
-                   type,
-                   placeholder,
-                   onChange,
-                   onInput,
-                   onBlur,
-                   value
-               }) {
+    type,
+    placeholder,
+    onChange,
+    onInput,
+    onBlur,
+    value,
+    hasError,
+    errorMessage
+}) {
     return(
-        <label className='input-container'>
-            <p>{label}</p>
+        <div className='input-container'>
             <input
                 type={type}
                 placeholder={placeholder}
@@ -22,8 +22,12 @@ function Input({
                 onInput={onInput}
                 onBlur={onBlur}
                 value={value}
+                style={{
+                    borderBottom: hasError ? '2px solid red' : 'inherit'
+                }}
             />
-        </label>
+            {hasError ? errorMessage : null}
+        </div>
     )
 }
 
