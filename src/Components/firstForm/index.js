@@ -9,6 +9,7 @@ import {
     lastNameValidation,
     phoneValidation
 } from '../../Store/actions/common/validationErrors'
+import anyError from '../../helpers/isThereValidationError'
 
 export {
     Form,
@@ -19,4 +20,6 @@ export {
     emailValidation,
     firstNameValidation,
     lastNameValidation,
-    phoneValidation}
+    phoneValidation,
+    anyError
+}
