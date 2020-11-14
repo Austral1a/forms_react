@@ -3,12 +3,14 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux'
 import store from './Store/index'
 
+import FirstForm from './Components/firstForm/FirstForm'
+
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
       <Provider store={store}>
-
+        <FirstForm />
       </Provider>
   </React.StrictMode>,
   document.getElementById('root')
