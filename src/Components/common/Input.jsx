@@ -10,7 +10,8 @@ function Input({
     onBlur,
     value,
     hasError,
-    errorMessage
+    errorMessage,
+    disabled
 }) {
     return(
         <div className='input-container'>
@@ -25,6 +26,7 @@ function Input({
                 style={{
                     borderBottom: hasError ? '2px solid red' : 'inherit'
                 }}
+                disabled={disabled}
             />
             {hasError ? errorMessage : null}
         </div>
