@@ -1,0 +1,12 @@
+.form {
+  width: 350px;
+  min-height: 450px;
+  max-height: 450px;
+  display: grid;
+  grid-template-columns: 180px;
+  background-color: #4c5265;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  border-radius: 4px;
+}
