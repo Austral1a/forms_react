@@ -1,0 +1,10 @@
+.input-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, 30px);
+
+  .input-container__input {
+    padding: 4px 7px;
+    border-radius: 4px;
+  }
+}
