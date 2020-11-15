@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import {Select, Option, Form, Input, Card, subscriptions, getPrice, countryChange} from './index'
+import {Select, Option, Form, Input, Card, subscriptions, getPrice, countryChange, planChange} from './index'
 import Button from '../common/Button'
 import {connect} from 'react-redux'
 
@@ -8,29 +8,35 @@ import './SecondForm.scss'
 import {Link} from 'react-router-dom'
 
 const mapStateToProps = (state) => ({
-    country: state.secondFormReducer.country
+    country: state.secondFormReducer.country,
+    plan: state.secondFormReducer.plan
 })
 
 const mapDispatchToProps = (dispatch) => ({
     countryChange: (country) => {
         dispatch(countryChange(country))
+    },
+    planChange: (plan) => {
+        dispatch(planChange(plan))
     }
 })
 
 function SecondForm({
     country,
-    countryChange
+    countryChange,
+    plan,
+    planChange
 }) {
 
     // const [country, setCountry] = useState('us')
-    const [plan, setPlan] = useState('free')
+    // const [plan, setPlan] = useState('free')
 
     const handleCountry = (e) => {
         countryChange(e.target.value)
     }
 
     const handlePlan = (e) => {
-        setPlan(e.target.value)
+        planChange(e.target.value)
     }
 
     return(
@@ -38,14 +44,14 @@ function SecondForm({
             onSubmit={(e) => e.preventDefault()}
             className='form form-second'>
             <Select
-                defaultValue='us'
+                defaultValue={country}
                 onChange={handleCountry}
             >
                 <Option value='us' text='United States' />
                 <Option value='ua' text='Ukraine' />
             </Select>
             <Select
-                defaultValue='free'
+                defaultValue={plan}
                 onChange={handlePlan}
             >
                 <Option value='free' text='Free' />

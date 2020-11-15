@@ -6,6 +6,7 @@ import Card from '../common/Card'
 import subscriptions from '../../helpers/subscriptions'
 import getPrice from '../../helpers/getPrice'
 import countryChange from '../../Store/actions/secondForm/country'
+import planChange from '../../Store/actions/secondForm/plan'
 export {
     Input,
     Select,
@@ -14,4 +15,5 @@ export {
     Card,
     subscriptions,
     getPrice,
-    countryChange}
+    countryChange,
+    planChange}

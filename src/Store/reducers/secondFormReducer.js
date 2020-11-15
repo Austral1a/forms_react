@@ -1,7 +1,8 @@
-import {COUNTRY_SELECT_CHANGE} from '../actions/action-types'
+import {COUNTRY_SELECT_CHANGE, PLAN_SELECT_CHANGE} from '../actions/action-types'
 
 const initState = {
-    country: 'us'
+    country: 'us',
+    plan: 'free'
 }
 
 const secondFormReducer = (state = initState, action) => {
@@ -10,6 +11,11 @@ const secondFormReducer = (state = initState, action) => {
             return {
                 ...state,
                 country: action.country
+            }
+        case PLAN_SELECT_CHANGE:
+            return {
+                ...state,
+                plan: action.plan
             }
         default:
             return state
