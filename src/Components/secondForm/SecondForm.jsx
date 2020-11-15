@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import {Select, Option, Form, Input, Card} from './index'
+import {Select, Option, Form, Input, Card, subscriptions, getPrice} from './index'
 
 import './SecondForm.scss'
 
@@ -34,7 +34,7 @@ function SecondForm() {
                 <Option value='premium' text='Premium' />
             </Select>
             <Card>
-
+                {getPrice(subscriptions, country, plan)} per month
             </Card>
             <Input
                 type='submit'
