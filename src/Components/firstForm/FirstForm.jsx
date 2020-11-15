@@ -9,7 +9,8 @@ import {
     lastNameValidation,
     phoneValidation,
     validationMessages as msg,
-    anyError
+    anyError,
+    firstFormHandler
 } from './index'
 import './FirstForm.scss'
 import {connect} from 'react-redux'
