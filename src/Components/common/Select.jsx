@@ -1,9 +1,9 @@
 import React from 'react'
 import '../../styles/Select.scss'
 
-function Select({defaultValue, children}) {
+function Select({defaultValue, children, onChange}) {
     return (
-        <select className='select' defaultValue={defaultValue}>
+        <select onChange={onChange} className='select' defaultValue={defaultValue}>
             {children}
         </select>
     )
