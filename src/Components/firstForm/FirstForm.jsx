@@ -1,89 +1,34 @@
-import React, {useMemo, useEffect, useRef} from 'react'
+import React, {useMemo} from 'react'
 import {
     Form,
-    Input,
     Button,
-    phoneMask,
-    emailValidation,
-    firstNameValidation,
-    lastNameValidation,
-    phoneValidation,
-    validationMessages as msg,
     anyError,
     firstFormHandler,
     Link,
-    firstNameChange,
-    lastNameChange,
-    emailChange,
-    phoneChange,
-    userSvg,
-    emailSvg,
-    phoneSvg
 } from './index'
 import './FirstForm.scss'
 import {connect} from 'react-redux'
-
+import FirstNameInput from './FirstNameInput'
+import LastNameInput from './LastNameInput'
+import EmailInput from './EmailInput'
+import PhoneInput from './PhoneInput'
 
 const mapStateToProps = (state) => ({
-    isFirstNameValid: state.formValidationReducer.isFirstNameValid,
-    isLastNameValid: state.formValidationReducer.isLastNameValid,
-    isEmailValid: state.formValidationReducer.isEmailValid,
-    isPhoneValid: state.formValidationReducer.isPhoneValid,
     isSubmitted: state.firstFormReducer.isSubmitted,
-    firstName: state.firstFormReducer.firstName,
-    lastName: state.firstFormReducer.lastName,
-    email: state.firstFormReducer.email,
-    phone: state.firstFormReducer.phone
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    firstNameValidation: (text) => {
-        dispatch(firstNameValidation(text))
-    },
-    lastNameValidation: (text) => {
-        dispatch(lastNameValidation(text))
-    },
-    emailValidation: (text) => {
-        dispatch(emailValidation(text))
-    },
-    phoneValidation: (text) =>  {
-        dispatch(phoneValidation(text))
-    },
     firstFormHandler: (noError) => {
         dispatch(firstFormHandler(noError))
-    },
-    firstNameChange: (char) => {
-        dispatch(firstNameChange(char))
-    },
-    lastNameChange: (char) => {
-        dispatch(lastNameChange(char))
-    },
-    emailChange: (char) => {
-        dispatch(emailChange(char))
-    },
-    phoneChange: (char) => {
-        dispatch(phoneChange(char))
     }
 })
 
 function FirstForm({
-    firstNameValidation,
-    lastNameValidation,
-    emailValidation,
-    phoneValidation,
     isFirstNameValid,
     isLastNameValid,
     isEmailValid,
     isPhoneValid,
     firstFormHandler,
-    firstName,
-    firstNameChange,
-    lastName,
-    lastNameChange,
-    email,
-    emailChange,
-    phone,
-    phoneChange
 }) {
 
     const anyErrorMemo = useMemo(() =>
@@ -94,60 +39,16 @@ function FirstForm({
         firstFormHandler(!anyErrorMemo)
     }, [anyErrorMemo])
 
-    const firstNameInput = useRef(null)
-
-    useEffect(() => {
-        firstNameInput.current.focus()
-    }, [])
-
     return(
         <Form
             onSubmit={(e) => {
                 e.preventDefault()
             }}
             className='form form-first'>
-            <Input
-                ref={firstNameInput}
-                type='text'
-                placeholder='First Name'
-                onBlur={() => firstNameValidation(firstName)}
-                onChange={e => firstNameChange(e.target.value)}
-                value={firstName}
-                hasError={!isFirstNameValid}
-                errorMessage={msg['firstName']}
-                icon={userSvg}
-            />
-            <Input
-                type='text'
-                placeholder='Last Name'
-                onBlur={() => lastNameValidation(lastName)}
-                onChange={e => lastNameChange(e.target.value)}
-                value={lastName}
-                hasError={!isLastNameValid}
-                errorMessage={msg['lastName']}
-                icon={userSvg}
-            />
-            <Input
-                type='text'
-                placeholder='Email'
-                onBlur={() => emailValidation(email)}
-                onChange={e => emailChange(e.target.value)}
-                value={email}
-                hasError={!isEmailValid}
-                errorMessage={msg['email']}
-                icon={emailSvg}
-            />
-            <Input
-                type='text'
-                placeholder='Phone'
-                onInput={phoneMask}
-                onBlur={() => phoneValidation(phone)}
-                onChange={e => phoneChange(e.target.value)}
-                value={phone}
-                hasError={!isPhoneValid}
-                errorMessage={msg['phone']}
-                icon={phoneSvg}
-            />
+            <FirstNameInput />
+            <LastNameInput />
+            <EmailInput />
+            <PhoneInput />
                 <Button
                     onClick={() => firstFormHandlerMemo}
                     disabled={anyErrorMemo}
