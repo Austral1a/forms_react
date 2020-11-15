@@ -10,4 +10,10 @@
     transition: all 0.2s linear;
     cursor: pointer;
   }
+  &[disabled] {
+    opacity: 0.6;
+  }
+  &[disabled]:hover {
+    background-color: gainsboro;
+  }
 }
