@@ -19,7 +19,8 @@ const mapStateToProps = (state) => ({
     isFirstNameValid: state.formValidationReducer.isFirstNameValid,
     isLastNameValid: state.formValidationReducer.isLastNameValid,
     isEmailValid: state.formValidationReducer.isEmailValid,
-    isPhoneValid: state.formValidationReducer.isPhoneValid
+    isPhoneValid: state.formValidationReducer.isPhoneValid,
+    isSubmitted: state.firstFormReducer.isSubmitted
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -34,6 +35,9 @@ const mapDispatchToProps = (dispatch) => ({
     },
     phoneValidation: (text) =>  {
         dispatch(phoneValidation(text))
+    },
+    firstFormHandler: (hasError) => {
+        dispatch(firstFormHandler(hasError))
     }
 })
 
@@ -58,7 +62,9 @@ function FirstForm({
         [isFirstNameValid, isLastNameValid, isEmailValid, isPhoneValid])
 
     return(
-        <Form className='form form-first'>
+        <Form
+            onSubmit={() => firstFormHandler(anyErrorMemo)}
+            className='form form-first'>
             <Input
                 type='text'
                 placeholder='First Name'
