@@ -10,10 +10,10 @@ import {
 } from '../actions/action-types'
 
 const initState = {
-    isFirstNameValid: false,
-    isLastNameValid: false,
-    isEmailValid: false,
-    isPhoneValid: false
+    isFirstNameValid: true,
+    isLastNameValid: true,
+    isEmailValid: true,
+    isPhoneValid: true
 }
 
 const formValidationReducer = (state = initState, action) => {
