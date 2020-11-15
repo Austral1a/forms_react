@@ -11,6 +11,7 @@ import {
 } from '../../Store/actions/common/validationErrors'
 import anyError from '../../helpers/isThereValidationError'
 import firstFormHandler from '../../Store/actions/FirstForm/firstFormHandler'
+import firstNameChange from '../../Store/actions/FirstForm/firstName'
 import {Link} from 'react-router-dom'
 
 export {
@@ -25,5 +26,6 @@ export {
     phoneValidation,
     anyError,
     firstFormHandler,
-    Link
+    Link,
+    firstNameChange
 }

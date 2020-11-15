@@ -11,17 +11,20 @@ import {
     validationMessages as msg,
     anyError,
     firstFormHandler,
-    Link
+    Link,
+    firstNameChange
 } from './index'
 import './FirstForm.scss'
 import {connect} from 'react-redux'
+
 
 const mapStateToProps = (state) => ({
     isFirstNameValid: state.formValidationReducer.isFirstNameValid,
     isLastNameValid: state.formValidationReducer.isLastNameValid,
     isEmailValid: state.formValidationReducer.isEmailValid,
     isPhoneValid: state.formValidationReducer.isPhoneValid,
-    isSubmitted: state.firstFormReducer.isSubmitted
+    isSubmitted: state.firstFormReducer.isSubmitted,
+    firstName: state.firstFormReducer.firstName
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -39,6 +42,9 @@ const mapDispatchToProps = (dispatch) => ({
     },
     firstFormHandler: (hasError) => {
         dispatch(firstFormHandler(hasError))
+    },
+    firstNameChange: (char) => {
+        dispatch(firstNameChange(char))
     }
 })
 
@@ -51,10 +57,12 @@ function FirstForm({
     isLastNameValid,
     isEmailValid,
     isPhoneValid,
-    firstFormHandler
+    firstFormHandler,
+    firstName,
+    firstNameChange
 }) {
 
-    const [firstName, setFirstName] = useState('')
+    // const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
     const [email, setEmail] = useState('')
     const [phone, setPhone] = useState('')
@@ -73,7 +81,7 @@ function FirstForm({
                 type='text'
                 placeholder='First Name'
                 onBlur={() => firstNameValidation(firstName)}
-                onChange={e => setFirstName(e.target.value)}
+                onChange={e => firstNameChange(e.target.value)}
                 value={firstName}
                 hasError={isFirstNameValid}
                 errorMessage={msg['firstName']}
