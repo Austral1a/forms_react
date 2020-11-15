@@ -12,12 +12,14 @@ const Input = React.forwardRef((
         value,
         hasError,
         errorMessage,
-        disabled
+        disabled,
+        icon
     },
     ref,
 ) => {
     return(
         <div className='input-container'>
+            <span className='input-container__icon'><img src={icon}/></span>
             <input
                 ref={ref}
                 type={type}
