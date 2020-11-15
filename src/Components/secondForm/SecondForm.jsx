@@ -1,17 +1,32 @@
 import React,{useState} from 'react'
-import {Select, Option, Form, Input, Card, subscriptions, getPrice} from './index'
+import {Select, Option, Form, Input, Card, subscriptions, getPrice, countryChange} from './index'
 import Button from '../common/Button'
+import {connect} from 'react-redux'
+
 
 import './SecondForm.scss'
 import {Link} from 'react-router-dom'
 
-function SecondForm() {
+const mapStateToProps = (state) => ({
+    country: state.secondFormReducer.country
+})
 
-    const [country, setCountry] = useState('us')
+const mapDispatchToProps = (dispatch) => ({
+    countryChange: (country) => {
+        dispatch(countryChange(country))
+    }
+})
+
+function SecondForm({
+    country,
+    countryChange
+}) {
+
+    // const [country, setCountry] = useState('us')
     const [plan, setPlan] = useState('free')
 
     const handleCountry = (e) => {
-        setCountry(e.target.value)
+        countryChange(e.target.value)
     }
 
     const handlePlan = (e) => {
@@ -48,4 +63,7 @@ function SecondForm() {
     )
 }
 
-export default SecondForm
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps)
+(SecondForm)
