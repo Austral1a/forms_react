@@ -10,7 +10,8 @@ import {
     phoneValidation,
     validationMessages as msg,
     anyError,
-    firstFormHandler
+    firstFormHandler,
+    Link
 } from './index'
 import './FirstForm.scss'
 import {connect} from 'react-redux'
@@ -49,7 +50,8 @@ function FirstForm({
     isFirstNameValid,
     isLastNameValid,
     isEmailValid,
-    isPhoneValid
+    isPhoneValid,
+    firstFormHandler
 }) {
 
     const [firstName, setFirstName] = useState('')
@@ -63,7 +65,9 @@ function FirstForm({
 
     return(
         <Form
-            onSubmit={() => firstFormHandler(anyErrorMemo)}
+            onSubmit={(e) => {
+                e.preventDefault()
+            }}
             className='form form-first'>
             <Input
                 type='text'
@@ -102,10 +106,11 @@ function FirstForm({
                 hasError={isPhoneValid}
                 errorMessage={msg['phone']}
             />
-            <Input
-                type='submit'
-                disabled={anyErrorMemo}
-            />
+                <Button
+                    onClick={() => firstFormHandler(anyErrorMemo)}
+                    disabled={anyErrorMemo}
+                    text={<Link to='/second-form'>Next</Link>}
+                />
         </Form>
     )
 }
