@@ -106,7 +106,7 @@ function FirstForm({
                 onBlur={() => firstNameValidation(firstName)}
                 onChange={e => firstNameChange(e.target.value)}
                 value={firstName}
-                hasError={isFirstNameValid}
+                hasError={!isFirstNameValid}
                 errorMessage={msg['firstName']}
             />
             <Input
@@ -115,7 +115,7 @@ function FirstForm({
                 onBlur={() => lastNameValidation(lastName)}
                 onChange={e => lastNameChange(e.target.value)}
                 value={lastName}
-                hasError={isLastNameValid}
+                hasError={!isLastNameValid}
                 errorMessage={msg['lastName']}
             />
             <Input
@@ -124,7 +124,7 @@ function FirstForm({
                 onBlur={() => emailValidation(email)}
                 onChange={e => emailChange(e.target.value)}
                 value={email}
-                hasError={isEmailValid}
+                hasError={!isEmailValid}
                 errorMessage={msg['email']}
             />
             <Input
@@ -134,7 +134,7 @@ function FirstForm({
                 onBlur={() => phoneValidation(phone)}
                 onChange={e => phoneChange(e.target.value)}
                 value={phone}
-                hasError={isPhoneValid}
+                hasError={!isPhoneValid}
                 errorMessage={msg['phone']}
             />
                 <Button
