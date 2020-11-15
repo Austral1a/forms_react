@@ -1,4 +1,11 @@
 .form-second {
   grid-template-rows: repeat(3, 80px);
   align-content: center;
+
+  .form-second__control {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+  }
 }
