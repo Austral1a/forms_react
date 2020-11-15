@@ -1,4 +1,4 @@
-import React, {useState, useMemo} from 'react'
+import React, {useMemo, useEffect, useRef} from 'react'
 import {
     Form,
     Input,
@@ -46,8 +46,8 @@ const mapDispatchToProps = (dispatch) => ({
     phoneValidation: (text) =>  {
         dispatch(phoneValidation(text))
     },
-    firstFormHandler: (hasError) => {
-        dispatch(firstFormHandler(hasError))
+    firstFormHandler: (noError) => {
+        dispatch(firstFormHandler(noError))
     },
     firstNameChange: (char) => {
         dispatch(firstNameChange(char))
@@ -83,14 +83,15 @@ function FirstForm({
     phoneChange
 }) {
 
-    // const [firstName, setFirstName] = useState('')
-    // const [lastName, setLastName] = useState('')
-    // const [email, setEmail] = useState('')
-    // const [phone, setPhone] = useState('')
-
     const anyErrorMemo = useMemo(() =>
             anyError(isFirstNameValid, isLastNameValid, isEmailValid, isPhoneValid),
         [isFirstNameValid, isLastNameValid, isEmailValid, isPhoneValid])
+
+    const firstNameInput = useRef(null)
+
+    useEffect(() => {
+        firstNameInput.current.focus()
+    }, [])
 
     return(
         <Form
@@ -99,6 +100,7 @@ function FirstForm({
             }}
             className='form form-first'>
             <Input
+                ref={firstNameInput}
                 type='text'
                 placeholder='First Name'
                 onBlur={() => firstNameValidation(firstName)}
