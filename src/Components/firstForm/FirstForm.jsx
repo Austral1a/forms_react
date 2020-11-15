@@ -14,7 +14,8 @@ import {
     Link,
     firstNameChange,
     lastNameChange,
-    emailChange
+    emailChange,
+    phoneChange
 } from './index'
 import './FirstForm.scss'
 import {connect} from 'react-redux'
@@ -28,7 +29,8 @@ const mapStateToProps = (state) => ({
     isSubmitted: state.firstFormReducer.isSubmitted,
     firstName: state.firstFormReducer.firstName,
     lastName: state.firstFormReducer.lastName,
-    email: state.firstFormReducer.email
+    email: state.firstFormReducer.email,
+    phone: state.firstFormReducer.phone
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -55,6 +57,9 @@ const mapDispatchToProps = (dispatch) => ({
     },
     emailChange: (char) => {
         dispatch(emailChange(char))
+    },
+    phoneChange: (char) => {
+        dispatch(phoneChange(char))
     }
 })
 
@@ -73,13 +78,15 @@ function FirstForm({
     lastName,
     lastNameChange,
     email,
-    emailChange
+    emailChange,
+    phone,
+    phoneChange
 }) {
 
     // const [firstName, setFirstName] = useState('')
     // const [lastName, setLastName] = useState('')
     // const [email, setEmail] = useState('')
-    const [phone, setPhone] = useState('')
+    // const [phone, setPhone] = useState('')
 
     const anyErrorMemo = useMemo(() =>
             anyError(isFirstNameValid, isLastNameValid, isEmailValid, isPhoneValid),
@@ -123,7 +130,7 @@ function FirstForm({
                 placeholder='Phone'
                 onInput={phoneMask}
                 onBlur={() => phoneValidation(phone)}
-                onChange={e => setPhone(e.target.value)}
+                onChange={e => phoneChange(e.target.value)}
                 value={phone}
                 hasError={isPhoneValid}
                 errorMessage={msg['phone']}
