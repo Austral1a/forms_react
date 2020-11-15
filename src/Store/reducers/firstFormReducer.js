@@ -2,13 +2,15 @@ import {
     FIRST_FORM_SUBMIT_SUCCESS,
     FIRST_FORM_SUBMIT_FAIL,
     FIRST_NAME_INPUT_CHANGE,
-    LAST_NAME_INPUT_CHANGE
+    LAST_NAME_INPUT_CHANGE,
+    EMAIL_INPUT_CHANGE
 } from '../actions/action-types'
 
 const initState = {
     isSubmitted: false,
     firstName: '',
-    lastName: ''
+    lastName: '',
+    email: ''
 }
 
 const firstFormReducer = (state = initState, action) => {
@@ -32,6 +34,11 @@ const firstFormReducer = (state = initState, action) => {
             return {
                 ...state,
                 lastName: action.char
+            }
+        case EMAIL_INPUT_CHANGE:
+            return {
+                ...state,
+                email: action.char
             }
         default:
             return state

@@ -13,6 +13,7 @@ import anyError from '../../helpers/isThereValidationError'
 import firstFormHandler from '../../Store/actions/FirstForm/firstFormHandler'
 import firstNameChange from '../../Store/actions/FirstForm/firstName'
 import lastNameChange from '../../Store/actions/FirstForm/lastName'
+import emailChange from '../../Store/actions/FirstForm/email'
 import {Link} from 'react-router-dom'
 
 export {
@@ -29,5 +30,6 @@ export {
     firstFormHandler,
     Link,
     firstNameChange,
-    lastNameChange
+    lastNameChange,
+    emailChange
 }
