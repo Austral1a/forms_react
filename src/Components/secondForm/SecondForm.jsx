@@ -1,7 +1,9 @@
 import React,{useState} from 'react'
 import {Select, Option, Form, Input, Card, subscriptions, getPrice} from './index'
+import Button from '../common/Button'
 
 import './SecondForm.scss'
+import {Link} from 'react-router-dom'
 
 function SecondForm() {
 
@@ -17,7 +19,9 @@ function SecondForm() {
     }
 
     return(
-        <Form className='form form-second'>
+        <Form
+            onSubmit={(e) => e.preventDefault()}
+            className='form form-second'>
             <Select
                 defaultValue='us'
                 onChange={handleCountry}
@@ -36,9 +40,10 @@ function SecondForm() {
             <Card>
                 {getPrice(subscriptions, country, plan)} per month
             </Card>
-            <Input
-                type='submit'
-            />
+            <div className='form-second__control'>
+                <Button text={<Link to='/first-form'>Back</Link>} />
+                <Button text='Submit' />
+            </div>
         </Form>
     )
 }
