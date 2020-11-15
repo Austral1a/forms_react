@@ -47,9 +47,9 @@ export const phoneNotValid = () => ({
 export const firstNameValidation = (text) => {
     return (dispatch) => {
         if(!isInputValid(patterns.name, text)) {
-            dispatch(firstNameValid())
-        } else {
             dispatch(firstNameNotValid())
+        } else {
+            dispatch(firstNameValid())
         }
     }
 }
@@ -57,9 +57,9 @@ export const firstNameValidation = (text) => {
 export const lastNameValidation = (text) => {
     return (dispatch) => {
         if(!isInputValid(patterns.name, text)) {
-            dispatch(lastNameValid())
-        } else {
             dispatch(lastNameNotValid())
+        } else {
+            dispatch(lastNameValid())
         }
     }
 }
@@ -68,9 +68,9 @@ export const lastNameValidation = (text) => {
 export const emailValidation = (text) => {
     return (dispatch) => {
         if(!isInputValid(patterns.email, text)) {
-            dispatch(emailValid())
-        } else {
             dispatch(emailNotValid())
+        } else {
+            dispatch(emailValid())
         }
     }
 }
@@ -78,9 +78,9 @@ export const emailValidation = (text) => {
 export const phoneValidation = (text) => {
     return (dispatch) => {
         if(!isInputValid(patterns.phone, text)) {
-            dispatch(phoneValid())
-        } else {
             dispatch(phoneNotValid())
+        } else {
+            dispatch(phoneValid())
         }
     }
 }
