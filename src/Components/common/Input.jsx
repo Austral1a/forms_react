@@ -1,21 +1,25 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 
 import '../../styles/Input.scss'
 
-function Input({
-    type,
-    placeholder,
-    onChange,
-    onInput,
-    onBlur,
-    value,
-    hasError,
-    errorMessage,
-    disabled
-}) {
+const Input = React.forwardRef((
+    {
+        type,
+        placeholder,
+        onChange,
+        onInput,
+        onBlur,
+        value,
+        hasError,
+        errorMessage,
+        disabled
+    },
+    ref,
+) => {
     return(
         <div className='input-container'>
             <input
+                ref={ref}
                 type={type}
                 placeholder={placeholder}
                 className='input-container__input'
@@ -31,6 +35,6 @@ function Input({
             {hasError ? errorMessage : null}
         </div>
     )
-}
+})
 
 export default Input
