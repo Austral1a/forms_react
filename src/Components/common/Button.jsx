@@ -5,10 +5,11 @@ import '../../styles/Button.scss'
 function Button({
     text,
     onClick,
-    disabled
+    disabled,
+    className
 }) {
     return (
-        <button className='button' onClick={onClick} disabled={disabled}>
+        <button className={`button ${className}`} onClick={onClick} disabled={disabled}>
             {text}
         </button>
     )
