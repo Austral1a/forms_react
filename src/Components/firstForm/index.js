@@ -10,6 +10,7 @@ import {
     phoneValidation
 } from '../../Store/actions/common/validationErrors'
 import anyError from '../../helpers/isThereValidationError'
+import firstFormHandler from '../../Store/actions/FirstForm/firstFormHandler'
 
 export {
     Form,
@@ -21,5 +22,6 @@ export {
     firstNameValidation,
     lastNameValidation,
     phoneValidation,
-    anyError
+    anyError,
+    firstFormHandler
 }
