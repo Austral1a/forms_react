@@ -19,7 +19,7 @@ const Input = React.forwardRef((
 ) => {
     return(
         <div className='input-container'>
-            <span className='input-container__icon'><img src={icon}/></span>
+            {icon ? <span className='input-container__icon'><img src={icon}/></span> : null}
             <input
                 ref={ref}
                 type={type}
