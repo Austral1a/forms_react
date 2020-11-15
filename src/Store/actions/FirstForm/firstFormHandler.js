@@ -8,12 +8,12 @@ const firstFormSubmitFail = () => ({
     type: FIRST_FORM_SUBMIT_FAIL
 })
 
-const firstFormHandler = (hasError) => {
+const firstFormHandler = (noError) => {
     return (dispatch) => {
-        if(hasError) {
-            dispatch(firstFormSubmitFail())
-        }  else {
+        if(noError) {
             dispatch(firstFormSubmitSuccess())
+        }  else {
+            dispatch(firstFormSubmitFail())
         }
     }
 }
