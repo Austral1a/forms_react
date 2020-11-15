@@ -87,6 +87,10 @@ function FirstForm({
             anyError(isFirstNameValid, isLastNameValid, isEmailValid, isPhoneValid),
         [isFirstNameValid, isLastNameValid, isEmailValid, isPhoneValid])
 
+    const firstFormHandlerMemo = useMemo(() => {
+        firstFormHandler(!anyErrorMemo)
+    }, [anyErrorMemo])
+
     const firstNameInput = useRef(null)
 
     useEffect(() => {
@@ -138,7 +142,7 @@ function FirstForm({
                 errorMessage={msg['phone']}
             />
                 <Button
-                    onClick={() => firstFormHandler(anyErrorMemo)}
+                    onClick={() => firstFormHandlerMemo}
                     disabled={anyErrorMemo}
                     text={<Link to='/second-form'>Next</Link>}
                 />
