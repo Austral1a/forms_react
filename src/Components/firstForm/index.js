@@ -16,6 +16,9 @@ import lastNameChange from '../../Store/actions/FirstForm/lastName'
 import emailChange from '../../Store/actions/FirstForm/email'
 import phoneChange from '../../Store/actions/FirstForm/phone'
 import {Link} from 'react-router-dom'
+import userSvg from '../../assets/user.svg'
+import emailSvg from '../../assets/email.svg'
+import phoneSvg from '../../assets/phone.svg'
 
 export {
     Form,
@@ -33,5 +36,8 @@ export {
     firstNameChange,
     lastNameChange,
     emailChange,
-    phoneChange
+    phoneChange,
+    userSvg,
+    emailSvg,
+    phoneSvg
 }

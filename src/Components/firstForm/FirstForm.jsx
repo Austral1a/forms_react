@@ -15,7 +15,10 @@ import {
     firstNameChange,
     lastNameChange,
     emailChange,
-    phoneChange
+    phoneChange,
+    userSvg,
+    emailSvg,
+    phoneSvg
 } from './index'
 import './FirstForm.scss'
 import {connect} from 'react-redux'
@@ -112,6 +115,7 @@ function FirstForm({
                 value={firstName}
                 hasError={!isFirstNameValid}
                 errorMessage={msg['firstName']}
+                icon={userSvg}
             />
             <Input
                 type='text'
@@ -121,6 +125,7 @@ function FirstForm({
                 value={lastName}
                 hasError={!isLastNameValid}
                 errorMessage={msg['lastName']}
+                icon={userSvg}
             />
             <Input
                 type='text'
@@ -130,6 +135,7 @@ function FirstForm({
                 value={email}
                 hasError={!isEmailValid}
                 errorMessage={msg['email']}
+                icon={emailSvg}
             />
             <Input
                 type='text'
@@ -140,6 +146,7 @@ function FirstForm({
                 value={phone}
                 hasError={!isPhoneValid}
                 errorMessage={msg['phone']}
+                icon={phoneSvg}
             />
                 <Button
                     onClick={() => firstFormHandlerMemo}
