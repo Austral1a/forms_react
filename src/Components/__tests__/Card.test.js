@@ -15,7 +15,7 @@ describe('Card Component' ,() => {
         expect(wrapper.find('.card').prop('className')).toBe(`card ${className}`)
     })
 
-    it('if className prop is not exists must set additional className', () => {
+    it('if className prop is not exists must not set additional className', () => {
         const wrapper = shallow(<Card />)
 
         expect(wrapper.find('.card').prop('className')).toBe('card')
