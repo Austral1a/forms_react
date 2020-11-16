@@ -24,6 +24,7 @@ import LastNameInput from './LastNameInput'
 import EmailInput from './EmailInput'
 import PhoneInput from './PhoneInput'
 import NextBtn from './NextBtn'
+import ErrorBoundary from '../ErrorBoundary'
 
 export {
     Form,
@@ -49,5 +50,6 @@ export {
     LastNameInput,
     EmailInput,
     PhoneInput,
-    NextBtn
+    NextBtn,
+    ErrorBoundary
 }

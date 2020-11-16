@@ -5,23 +5,26 @@ import {
     LastNameInput,
     EmailInput,
     PhoneInput,
-    NextBtn
+    NextBtn,
+    ErrorBoundary
 } from './index'
 import './FirstForm.scss'
 function FirstForm() {
 
     return(
-        <Form
-            onSubmit={(e) => {
-                e.preventDefault()
-            }}
-            className='form form-first'>
-            <FirstNameInput />
-            <LastNameInput />
-            <EmailInput />
-            <PhoneInput />
-            <NextBtn />
-        </Form>
+        <ErrorBoundary>
+            <Form
+                onSubmit={(e) => {
+                    e.preventDefault()
+                }}
+                className='form form-first'>
+                <FirstNameInput />
+                <LastNameInput />
+                <EmailInput />
+                <PhoneInput />
+                <NextBtn />
+            </Form>
+        </ErrorBoundary>
     )
 }
 

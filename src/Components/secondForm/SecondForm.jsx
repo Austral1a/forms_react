@@ -4,20 +4,24 @@ import {
     CountrySelect,
     PlanSelect,
     PriceCard,
-    ControlPanel} from './index'
+    ControlPanel,
+    ErrorBoundary
+} from './index'
 import './SecondForm.scss'
 
 function SecondForm() {
 
     return(
-        <Form
-            onSubmit={(e) => e.preventDefault()}
-            className='form form-second'>
-            <CountrySelect />
-            <PlanSelect />
-            <PriceCard />
-            <ControlPanel />
-        </Form>
+        <ErrorBoundary>
+            <Form
+                onSubmit={(e) => e.preventDefault()}
+                className='form form-second'>
+                <CountrySelect />
+                <PlanSelect />
+                <PriceCard />
+                <ControlPanel />
+            </Form>
+        </ErrorBoundary>
     )
 }
 

@@ -12,6 +12,7 @@ import CountrySelect from './CountrySelect'
 import PlanSelect from './PlanSelect'
 import PriceCard from './PriceCard'
 import ControlPanel from './ControlPanel'
+import ErrorBoundary from '../ErrorBoundary'
 
 export {
     Input,
@@ -27,4 +28,5 @@ export {
     CountrySelect,
     PlanSelect,
     PriceCard,
-    ControlPanel}
+    ControlPanel,
+    ErrorBoundary}
