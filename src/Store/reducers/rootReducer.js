@@ -1,12 +1,10 @@
 import {combineReducers} from 'redux'
-import formValidationReducer from './FormValidationReducer'
-import firstFormReducer from './firstFormReducer'
 import secondFormReducer from './secondFormReducer'
+import saveValueReducer from '../FirstForm/saveValuesReducer'
 
 const rootReducer = combineReducers({
-      formValidationReducer,
-      firstFormReducer,
-      secondFormReducer
+      secondFormReducer,
+      saveValueReducer
 })
 
 export default rootReducer
