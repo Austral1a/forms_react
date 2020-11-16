@@ -1,5 +1,5 @@
-import {subscriptions as sub} from '../../helpers/subscriptions'
-import getPrice from '../../helpers/getPrice'
+import {subscriptions as sub} from '../subscriptions'
+import getPrice from '../getPrice'
 
 describe('getPrice function must return appropriate subscription', () => {
     const plans = {

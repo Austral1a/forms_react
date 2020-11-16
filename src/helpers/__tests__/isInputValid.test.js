@@ -1,5 +1,5 @@
-import isInputValid from '../../helpers/isInputValid'
-import patterns from '../../helpers/patterns'
+import isInputValid from '../isInputValid'
+import patterns from '../patterns'
 
 describe('patterns', () => {
 
