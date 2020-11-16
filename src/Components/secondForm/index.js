@@ -7,6 +7,12 @@ import subscriptions from '../../helpers/subscriptions'
 import getPrice from '../../helpers/getPrice'
 import countryChange from '../../Store/actions/secondForm/country'
 import planChange from '../../Store/actions/secondForm/plan'
+import Button from '../common/Button'
+import CountrySelect from './CountrySelect'
+import PlanSelect from './PlanSelect'
+import PriceCard from './PriceCard'
+import ControlPanel from './ControlPanel'
+
 export {
     Input,
     Select,
@@ -16,4 +22,9 @@ export {
     subscriptions,
     getPrice,
     countryChange,
-    planChange}
+    planChange,
+    Button,
+    CountrySelect,
+    PlanSelect,
+    PriceCard,
+    ControlPanel}
