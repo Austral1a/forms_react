@@ -34,7 +34,7 @@ const Input = React.forwardRef((
                 }}
                 disabled={disabled}
             />
-            {hasError ? errorMessage : null}
+            {hasError ? <p className='input-container__error'>{errorMessage}</p> : null}
         </div>
     )
 })
