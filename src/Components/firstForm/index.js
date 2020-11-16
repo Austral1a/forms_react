@@ -19,6 +19,11 @@ import {Link} from 'react-router-dom'
 import userSvg from '../../assets/user.svg'
 import emailSvg from '../../assets/email.svg'
 import phoneSvg from '../../assets/phone.svg'
+import FirstNameInput from './FirstNameInput'
+import LastNameInput from './LastNameInput'
+import EmailInput from './EmailInput'
+import PhoneInput from './PhoneInput'
+import NextBtn from './NextBtn'
 
 export {
     Form,
@@ -39,5 +44,10 @@ export {
     phoneChange,
     userSvg,
     emailSvg,
-    phoneSvg
+    phoneSvg,
+    FirstNameInput,
+    LastNameInput,
+    EmailInput,
+    PhoneInput,
+    NextBtn
 }
