@@ -35,9 +35,6 @@ function FirstForm({
             anyError(isFirstNameValid, isLastNameValid, isEmailValid, isPhoneValid),
         [isFirstNameValid, isLastNameValid, isEmailValid, isPhoneValid])
 
-    const firstFormHandlerMemo = useMemo(() => {
-        firstFormHandler(!anyErrorMemo)
-    }, [anyErrorMemo])
 
     return(
         <Form
@@ -50,7 +47,7 @@ function FirstForm({
             <EmailInput />
             <PhoneInput />
                 <Button
-                    onClick={() => firstFormHandlerMemo}
+                    onClick={() => firstFormHandler(!anyErrorMemo)}
                     disabled={anyErrorMemo}
                     text={<Link to='/second-form'>Next</Link>}
                 />
