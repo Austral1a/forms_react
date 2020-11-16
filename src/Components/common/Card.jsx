@@ -9,7 +9,7 @@ function Card({
     return (
         <div
             style={style}
-            className={`card ${className}`}
+            className={`card${className ? ' ' + className : ''}`}
         >
             {children}
         </div>
