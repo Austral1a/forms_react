@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Option, planChange, Select} from './index'
+import {Option, planChange, Select} from '../index'
 
 
 const mapStateToProps = (state) => ({

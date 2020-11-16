@@ -6,7 +6,7 @@ import {
     lastNameValidation,
     validationMessages as msg,
     userSvg
-} from './index'
+} from '../index'
 
 
 const mapStateToProps = (state) => ({

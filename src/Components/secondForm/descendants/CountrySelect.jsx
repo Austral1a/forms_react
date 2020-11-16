@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {countryChange, Option, Select} from './index'
+import {countryChange, Option, Select} from '../index'
 
 const mapStateToProps = (state) => ({
     country: state.secondFormReducer.country

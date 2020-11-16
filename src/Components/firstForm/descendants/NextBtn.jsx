@@ -1,7 +1,7 @@
 import React, {useEffect, useMemo} from 'react'
 import {connect} from 'react-redux'
 
-import {anyError, Button, firstFormHandler, Link} from './index'
+import {anyError, Button, firstFormHandler, Link} from '../index'
 
 const mapStateToProps = (state) => ({
     isFirstNameValid: state.formValidationReducer.isFirstNameValid,

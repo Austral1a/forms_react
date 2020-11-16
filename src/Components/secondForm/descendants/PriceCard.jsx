@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Card, getPrice, subscriptions} from './index'
+import {Card, getPrice, subscriptions} from '../index'
 
 const mapStateToProps = (state) => ({
     country: state.secondFormReducer.country,

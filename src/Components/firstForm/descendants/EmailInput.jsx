@@ -6,7 +6,7 @@ import {
     emailValidation,
     Input,
     validationMessages as msg
-} from './index'
+} from '../index'
 
 
 const mapStateToProps = (state) => ({

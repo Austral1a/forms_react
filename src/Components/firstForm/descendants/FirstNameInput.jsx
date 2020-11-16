@@ -6,7 +6,7 @@ import {
     Input,
     userSvg,
     validationMessages as msg
-} from './index'
+} from '../index'
 
 const mapStateToProps = (state) => ({
     isFirstNameValid: state.formValidationReducer.isFirstNameValid,

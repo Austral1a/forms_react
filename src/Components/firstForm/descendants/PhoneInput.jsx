@@ -7,7 +7,7 @@ import {
     phoneSvg,
     phoneValidation,
     validationMessages as msg
-} from './index'
+} from '../index'
 
 const mapStateToProps = (state) => ({
     isPhoneValid: state.formValidationReducer.isPhoneValid,
