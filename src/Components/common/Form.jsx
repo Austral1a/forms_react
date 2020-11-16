@@ -9,7 +9,7 @@ function Form({
               }) {
     return(
         <form
-            className={className}
+            className={className ? className : ''}
             action={action}
             onSubmit={onSubmit}
         >
