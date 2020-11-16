@@ -21,26 +21,20 @@ function NextBtn({
     isLastNameValid,
     isEmailValid,
     isPhoneValid,
-    firstFormHandler
+    firstFormHandler,
+    disabled
 }) {
 
     const anyErrorMemo = useMemo(() =>
             anyError(isFirstNameValid, isLastNameValid, isEmailValid, isPhoneValid),
         [isFirstNameValid, isLastNameValid, isEmailValid, isPhoneValid])
 
-    useEffect(() => {
-        // if user is have returned back to the prev form
-        // just to be on the safe side, set isSubmitted for FirstForm - false
-        // anyway, after click on the next button, isSubmitted will compute again
-        firstFormHandler(false)
-    }, [])
-
     const handleClick = () => firstFormHandler(!anyErrorMemo)
 
     return(
         <Button
             onClick={handleClick}
-            disabled={anyErrorMemo}
+            disabled={disabled}
             text={<Link to='/second-form'>Next</Link>}
         />
     )

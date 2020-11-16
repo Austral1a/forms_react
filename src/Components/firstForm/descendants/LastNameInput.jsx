@@ -1,49 +1,31 @@
-import React from 'react'
-import {connect} from 'react-redux'
+import React, {useState} from 'react'
 import {
     Input,
-    lastNameChange,
-    lastNameValidation,
     validationMessages as msg,
     userSvg
 } from '../index'
-
-
-const mapStateToProps = (state) => ({
-    isLastNameValid: state.formValidationReducer.isLastNameValid,
-    lastName: state.firstFormReducer.lastName,
-})
-
-const mapDispatchToProps = (dispatch) => ({
-    lastNameValidation: (text) => {
-        dispatch(lastNameValidation(text))
-    },
-    lastNameChange: (char) => {
-        dispatch(lastNameChange(char))
-    }
-})
+import useInputValidation from '../hooks/useInputValidation'
 
 function LastNameInput({
-    lastNameChange,
-    lastNameValidation,
-    lastName,
-    isLastNameValid
+    isValid,
+    setIsValid
 }) {
+
+    const [lastName, setLastName] = useState('')
+    isValid = useInputValidation('name', lastName)
+
     return(
         <Input
             type='text'
             placeholder='Last Name'
-            onBlur={() => lastNameValidation(lastName)}
-            onChange={e => lastNameChange(e.target.value)}
+            onBlur={() => setIsValid(isValid)}
+            onChange={e => setLastName(e.target.value)}
             value={lastName}
-            hasError={!isLastNameValid}
+            hasError={!isValid}
             errorMessage={msg['lastName']}
             icon={userSvg}
         />
     )
 }
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(LastNameInput)
+export default LastNameInput

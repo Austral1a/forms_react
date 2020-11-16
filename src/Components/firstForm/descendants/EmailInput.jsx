@@ -1,49 +1,29 @@
-import React from 'react'
-import {connect} from 'react-redux'
+import React, {useState} from 'react'
 import {
-    emailChange,
     emailSvg,
-    emailValidation,
     Input,
     validationMessages as msg
 } from '../index'
+import useInputValidation from '../hooks/useInputValidation'
 
 
-const mapStateToProps = (state) => ({
-    isEmailValid: state.formValidationReducer.isEmailValid,
-    email: state.firstFormReducer.email,
-})
+function EmailInput({isValid, setIsValid}) {
 
-const mapDispatchToProps = (dispatch) => ({
-    emailValidation: (text) => {
-        dispatch(emailValidation(text))
-    },
-    emailChange: (char) => {
-        dispatch(emailChange(char))
-    }
-})
+    const [email, setEmail] = useState('')
+    isValid = useInputValidation('email', email)
 
-function EmailInput({
-    email,
-    isEmailValid,
-    emailValidation,
-    emailChange
-}) {
     return(
         <Input
             type='text'
             placeholder='Email'
-            onBlur={() => emailValidation(email)}
-            onChange={e => emailChange(e.target.value)}
+            onBlur={() => setIsValid(isValid)}
+            onChange={e => setEmail(e.target.value)}
             value={email}
-            hasError={!isEmailValid}
+            hasError={!isValid}
             errorMessage={msg['email']}
             icon={emailSvg}
         />
     )
 }
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(EmailInput)
+export default EmailInput

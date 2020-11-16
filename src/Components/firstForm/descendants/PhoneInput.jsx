@@ -1,50 +1,33 @@
-import React from 'react'
-import {connect} from 'react-redux'
+import React,{useState} from 'react'
 import {
     Input,
-    phoneChange,
     phoneMask,
     phoneSvg,
-    phoneValidation,
     validationMessages as msg
 } from '../index'
 
-const mapStateToProps = (state) => ({
-    isPhoneValid: state.formValidationReducer.isPhoneValid,
-    phone: state.firstFormReducer.phone
-})
-
-const mapDispatchToProps = (dispatch) => ({
-    phoneValidation: (text) =>  {
-        dispatch(phoneValidation(text))
-    },
-    phoneChange: (char) => {
-        dispatch(phoneChange(char))
-    }
-})
+import useInputValidation from '../hooks/useInputValidation'
 
 function PhoneInput({
-    isPhoneValid,
-    phone,
-    phoneValidation,
-    phoneChange
+    isValid,
+    setIsValid
     }) {
+
+    const [phone, setPhone] = useState('')
+    isValid = useInputValidation('phone', phone)
     return(
         <Input
             type='text'
             placeholder='Phone'
             onInput={phoneMask}
-            onBlur={() => phoneValidation(phone)}
-            onChange={e => phoneChange(e.target.value)}
+            onBlur={() => setIsValid(isValid)}
+            onChange={e => setPhone(e.target.value)}
             value={phone}
-            hasError={!isPhoneValid}
+            hasError={!isValid}
             errorMessage={msg['phone']}
             icon={phoneSvg}
         />
     )
 }
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(PhoneInput)
+export default PhoneInput

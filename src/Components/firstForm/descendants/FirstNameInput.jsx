@@ -1,32 +1,15 @@
-import React,{useRef, useEffect} from 'react'
+import React,{useRef, useEffect, useState} from 'react'
 import {connect} from 'react-redux'
 import {
-    firstNameChange,
-    firstNameValidation,
     Input,
     userSvg,
     validationMessages as msg
 } from '../index'
-
-const mapStateToProps = (state) => ({
-    isFirstNameValid: state.formValidationReducer.isFirstNameValid,
-    firstName: state.firstFormReducer.firstName,
-})
-
-const mapDispatchToProps = (dispatch) => ({
-    firstNameValidation: (text) => {
-        dispatch(firstNameValidation(text))
-    },
-    firstNameChange: (char) => {
-        dispatch(firstNameChange(char))
-    }
-})
+import useInputValidation from '../hooks/useInputValidation'
 
 function FirstNameInput({
-    firstName,
-    isFirstNameValid,
-    firstNameValidation,
-    firstNameChange
+    isValid,
+    setIsValid
 }) {
 
     const firstNameInput = useRef(null)
@@ -35,23 +18,22 @@ function FirstNameInput({
         firstNameInput.current.focus()
     }, [])
 
+    const [firstName, setFirstName] = useState('')
+    isValid = useInputValidation('name', firstName)
 
     return(
         <Input
             ref={firstNameInput}
             type='text'
             placeholder='First Name'
-            onBlur={() => firstNameValidation(firstName)}
-            onChange={e => firstNameChange(e.target.value)}
+            onBlur={() => setIsValid(isValid)}
+            onChange={e => setFirstName(e.target.value)}
             value={firstName}
-            hasError={!isFirstNameValid}
+            hasError={!isValid}
             errorMessage={msg['firstName']}
             icon={userSvg}
         />
     )
 }
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(FirstNameInput)
+export default FirstNameInput

@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useMemo, useCallback} from 'react'
 
 import '../../styles/Input.scss'
 
@@ -17,6 +17,19 @@ const Input = React.forwardRef((
     },
     ref,
 ) => {
+
+
+    const renderError = useCallback(() => {
+        console.log(hasError, value)
+        if(!hasError) {
+            return null
+        } else if(value === '') {
+            return ''
+        } else if(hasError) {
+            return <p className='input-container__error'>{errorMessage}</p>
+        }
+    }, [hasError, value])
+
     return(
         <div className='input-container'>
             {icon ? <span className='input-container__icon'><img src={icon}/></span> : null}
@@ -30,11 +43,11 @@ const Input = React.forwardRef((
                 onBlur={onBlur}
                 value={value}
                 style={{
-                    borderBottom: hasError ? '2px solid red' : 'inherit'
+                    borderBottom: hasError && value !== '' ? '2px solid red' : 'inherit'
                 }}
                 disabled={disabled}
             />
-            {hasError ? <p className='input-container__error'>{errorMessage}</p> : null}
+            {renderError()}
         </div>
     )
 })
