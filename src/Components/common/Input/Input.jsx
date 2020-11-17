@@ -19,17 +19,6 @@ const Input = React.forwardRef((
     ref,
 ) => {
 
-
-    const renderError = useCallback(() => {
-        if(!hasError) {
-            return null
-        } else if(value === '') {
-            return ''
-        } else if(hasError) {
-            return <p className='input-container__error'>{errorMessage}</p>
-        }
-    }, [hasError, value])
-
     return(
         <div className='input-container'>
             {icon && <span className='input-container__icon'><img src={icon}/></span>}
@@ -43,12 +32,12 @@ const Input = React.forwardRef((
                 onBlur={onBlur}
                 value={value}
                 style={{
-                    borderBottom: hasError && value !== '' ? '2px solid red' : 'inherit'
+                    borderBottom: hasError && !!value ? '2px solid red' : 'inherit'
                 }}
                 disabled={disabled}
                 onFocus={onFocus}
             />
-            {renderError()}
+            {hasError && !!value && <p className='input-container__error'>{errorMessage}</p>}
         </div>
     )
 })
