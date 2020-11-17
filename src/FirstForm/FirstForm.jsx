@@ -1,11 +1,7 @@
-import React, {useState, useEffect, useRef, useMemo} from 'react'
+import React, {useState, useEffect, useRef, useMemo, useCallback} from 'react'
 import {useDispatch} from 'react-redux'
 import {
     Form,
-    FirstNameInput,
-    LastNameInput,
-    EmailInput,
-    PhoneInput,
     NextBtn,
     ErrorBoundary,
     useExtractValues,
@@ -13,90 +9,66 @@ import {
 } from './index'
 import './FirstForm.scss'
 
+
 function FirstForm() {
     const firstNameInput = useRef(null)
     const vals = useExtractValues()
 
-    const [isFirstNameValid, setIsFirstNameValid] = useState(false)
-    const [isLastNameValid, setIsLastNameValid] = useState(false)
-    const [isEmailValid, setIsEmailValid] = useState(false)
-    const [isPhoneValid, setIsPhoneValid] = useState(false)
-    const [firstName, setFirstName] = useState('')
-    const [lastName, setLastName] = useState('')
-    const [email, setEmail] = useState('')
-    const [phone, setPhone] = useState('')
+    const [firstName, setFirstName] = useState(vals.firstName)
+    const [lastName, setLastName] = useState(vals.lastName)
+    const [email, setEmail] = useState(vals.email)
+    const [phone, setPhone] = useState(vals.phone)
+    const [formErrors, setFormErrors] = useState({})
 
     const dispatch = useDispatch()
 
+    const isEmailValid = useInputValidation('email', email)
+    const isPhoneValid = useInputValidation('phone', phone)
+    const isFirstNameValid = useInputValidation('name', firstName)
+    const isLastNameValid = useInputValidation('name', lastName)
+
     useEffect(() => {
-        firstNameInput.current.focus()
+        let errors = {}
+        errors = {...errors, isEmailValid, isPhoneValid, isFirstNameValid, isLastNameValid}
+        setFormErrors(errors)
+    }, [isEmailValid, isPhoneValid, isFirstNameValid, isLastNameValid])
 
-        setFirstName(vals.firstName)
-        setLastName(vals.lastName)
-        setEmail(vals.email)
-        setPhone(vals.phone)
-    }, [])
-
-    const errors = {
-            firstName: useInputValidation('name', firstName),
-            lastName: useInputValidation('name', lastName),
-            email: useInputValidation('email', email),
-            phone: useInputValidation('phone', phone)
-    }
-    const errorsMemo = useMemo(
-        () => errors,
-        [firstName, lastName, email, phone]
-    )
-    const validation = {
-        firstName: () => setIsFirstNameValid(errorsMemo.firstName),
-        lastName: () => setIsLastNameValid(errorsMemo.lastName),
-        email: () => setIsEmailValid(errorsMemo.email),
-        phone: () => setIsPhoneValid(errorsMemo.phone)
-    }
-
+    const isBtnDisabled = Object.values(formErrors).includes(false)
     return(
         <ErrorBoundary>
             <Form
                 onSubmit={(e) => {
                     e.preventDefault()
                 }}
-
                 className='form form-first'>
-                <button onClick={() => {
-                    console.log(firstName, lastName, email, phone)
-                    console.log(isFirstNameValid, isLastNameValid, isEmailValid, isPhoneValid)
-                }}>click</button>
                 <Input
                     ref={firstNameInput}
                     type='text'
                     placeholder='First Name'
-                    onFocus={() => setIsFirstNameValid(true)}
-                    onBlur={validation.firstName}
+                    onBlur={() => isFirstNameValid}
                     onChange={e => setFirstName(e.target.value)}
                     value={firstName}
-                    hasError={!isFirstNameValid}
+                    hasError={!formErrors.isFirstNameValid}
                     errorMessage={msg['firstName']}
                     icon={userSvg}
                 />
                 <Input
                     type='text'
                     placeholder='Last Name'
-                    onFocus={validation.lastName}
-                    onBlur={validation.lastName}
+                    onBlur={() => isLastNameValid}
                     onChange={e => setLastName(e.target.value)}
                     value={lastName}
-                    hasError={!isLastNameValid}
+                    hasError={!formErrors.isLastNameValid}
                     errorMessage={msg['lastName']}
                     icon={userSvg}
                 />
                 <Input
                     type='text'
                     placeholder='Email'
-                    onFocus={() => setIsEmailValid(true)}
-                    onBlur={validation.email}
+                    onBlur={() => isEmailValid}
                     onChange={e => setEmail(e.target.value)}
                     value={email}
-                    hasError={!isEmailValid}
+                    hasError={!formErrors.isEmailValid}
                     errorMessage={msg['email']}
                     icon={emailSvg}
                 />
@@ -104,8 +76,7 @@ function FirstForm() {
                     type='text'
                     placeholder='Phone'
                     onInput={phoneMask}
-                    onFocus={() => setIsPhoneValid(true)}
-                    onBlur={validation.phone}
+                    onBlur={() => isPhoneValid}
                     onChange={e => setPhone(e.target.value)}
                     value={phone}
                     hasError={!isPhoneValid}
@@ -118,9 +89,7 @@ function FirstForm() {
                 {/*<PhoneInput phone={phone} setPhone={setPhone} setIsValid={setIsPhoneValid} />*/}
                 <NextBtn
                     onClick={() => dispatch(saveValues(firstName, lastName, email, phone))}
-                    disabled={
-                        !isFirstNameValid || !isLastNameValid || !isEmailValid || !isPhoneValid
-                    }
+                    disabled={isBtnDisabled}
                 />
             </Form>
         </ErrorBoundary>
