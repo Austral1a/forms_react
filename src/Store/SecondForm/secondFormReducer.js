@@ -1,4 +1,4 @@
-import {COUNTRY_SELECT_CHANGE, PLAN_SELECT_CHANGE} from '../actions/action-types'
+import {COUNTRY_SELECT_CHANGE, PLAN_SELECT_CHANGE} from './action-types'
 
 const initState = {
     country: 'us',

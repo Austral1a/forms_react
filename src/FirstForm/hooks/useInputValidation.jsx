@@ -1,6 +1,6 @@
 import {useState, useEffect, useMemo} from 'react'
-import isInputValid from '../../../helpers/isInputValid'
-import patterns from '../../../helpers/patterns'
+import isInputValid from '../../helpers/isInputValid'
+import patterns from '../../helpers/patterns'
 
 function useInputValidation(patternName, inputName) {
     const [isValid, setIsValid] = useState(false)

@@ -1,4 +1,4 @@
-import {PLAN_SELECT_CHANGE} from '../action-types'
+import {PLAN_SELECT_CHANGE} from './action-types'
 
 const planChange = (plan) => ({
     type: PLAN_SELECT_CHANGE,
