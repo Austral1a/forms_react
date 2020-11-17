@@ -1,15 +1,14 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {
     emailSvg,
     Input,
-    validationMessages as msg
+    validationMessages as msg,
+    useInputValidation
 } from '../index'
-import useInputValidation from '../hooks/useInputValidation'
 
 
-function EmailInput({isValid, setIsValid}) {
+function EmailInput({isValid, setIsValid, email, setEmail}) {
 
-    const [email, setEmail] = useState('')
     isValid = useInputValidation('email', email)
 
     return(
