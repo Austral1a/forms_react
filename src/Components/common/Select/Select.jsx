@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../styles/Select.scss'
+import './Select.scss'
 
 function Select({defaultValue, children, onChange}) {
     return (

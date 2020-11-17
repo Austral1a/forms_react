@@ -1,6 +1,6 @@
 import React from 'react'
 
-import '../../styles/Button.scss'
+import './Button.scss'
 
 function Button({
     text,

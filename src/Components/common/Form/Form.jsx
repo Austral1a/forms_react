@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../styles/Form.scss'
+import './Form.scss'
 
 function Form({
                   children,

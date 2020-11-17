@@ -1,6 +1,6 @@
 import React, {useEffect, useMemo, useCallback} from 'react'
 
-import '../../styles/Input.scss'
+import './Input.scss'
 
 const Input = React.forwardRef((
     {
