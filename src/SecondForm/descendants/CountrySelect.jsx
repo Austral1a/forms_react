@@ -1,30 +1,14 @@
 import React from 'react'
-import {connect} from 'react-redux'
 import {countryChange, Option, Select} from '../index'
+import {useDispatch} from 'react-redux'
 
-const mapStateToProps = (state) => ({
-    country: state.secondFormReducer.country
-})
-
-const mapDispatchToProps = (dispatch) => ({
-    countryChange: (country) => {
-        dispatch(countryChange(country))
-    }
-})
-
-function CountrySelect({
-    country,
-    countryChange
-}) {
-
-    const handleCountry = (e) => {
-        countryChange(e.target.value)
-    }
+function CountrySelect({country}) {
+    const dispatch = useDispatch()
 
     return(
         <Select
             defaultValue={country}
-            onChange={handleCountry}
+            onChange={(e) => dispatch(countryChange(e.target.value))}
         >
             <Option value='us' text='United States' />
             <Option value='ua' text='Ukraine' />
@@ -32,7 +16,4 @@ function CountrySelect({
     )
 }
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(CountrySelect)
+export default CountrySelect
