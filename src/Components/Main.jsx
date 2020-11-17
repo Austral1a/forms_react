@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/general.scss'
 import {BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom'
-import FirstForm from './firstForm/FirstForm'
+import FirstForm from '../FirstForm/FirstForm'
 import SecondForm from './secondForm/SecondForm'
 
 function Main() {
