@@ -1,5 +1,5 @@
 import {shallow} from 'enzyme'
-import Option from '../common/Option'
+import Option from '../common/Option/Option'
 
 describe('Option component', () => {
     it("must render option's inner text", () => {
@@ -12,6 +12,6 @@ describe('Option component', () => {
     it("option must have value attribute", () => {
         const value = 'option1'
         const wrapper = shallow(<Option value={value} />)
-        expect(wrapper.find('select__option')).toHaveAttribute('value', value)
+        expect(wrapper.find('.select__option').prop('value')).toBe(value)
     })
 })

@@ -1,5 +1,5 @@
 import {shallow} from 'enzyme'
-import Form from '../common/Form'
+import Form from '../common/Form/Form'
 
 describe('Form component', () => {
     it('must render children', () => {
