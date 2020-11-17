@@ -10,11 +10,6 @@ import {
     phoneValidation
 } from '../../Store/actions/common/validationErrors'
 import anyError from '../../helpers/isThereValidationError'
-import firstFormHandler from '../../Store/FirstForm/firstFormHandler'
-import firstNameChange from '../../Store/FirstForm/firstName'
-import lastNameChange from '../../Store/FirstForm/lastName'
-import emailChange from '../../Store/FirstForm/email'
-import phoneChange from '../../Store/FirstForm/phone'
 import {Link} from 'react-router-dom'
 import userSvg from '../../assets/user.svg'
 import emailSvg from '../../assets/email.svg'
@@ -25,6 +20,8 @@ import EmailInput from './descendants/EmailInput'
 import PhoneInput from './descendants/PhoneInput'
 import NextBtn from './descendants/NextBtn'
 import ErrorBoundary from '../ErrorBoundary'
+import useExtractValues from './hooks/useExtractValues'
+import useInputValidation from './hooks/useInputValidation'
 
 export {
     Form,
@@ -37,12 +34,7 @@ export {
     lastNameValidation,
     phoneValidation,
     anyError,
-    firstFormHandler,
     Link,
-    firstNameChange,
-    lastNameChange,
-    emailChange,
-    phoneChange,
     userSvg,
     emailSvg,
     phoneSvg,
@@ -51,5 +43,7 @@ export {
     EmailInput,
     PhoneInput,
     NextBtn,
-    ErrorBoundary
+    ErrorBoundary,
+    useExtractValues,
+    useInputValidation
 }
