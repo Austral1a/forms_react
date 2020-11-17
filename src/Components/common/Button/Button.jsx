@@ -9,7 +9,7 @@ function Button({
     className
 }) {
     return (
-        <button className={`button ${className}`} onClick={onClick} disabled={disabled}>
+        <button className={`button${className ? ' ' + className : ''}`} onClick={onClick} disabled={disabled}>
             {text}
         </button>
     )
