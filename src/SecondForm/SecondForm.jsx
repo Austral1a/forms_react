@@ -5,20 +5,22 @@ import {
     PlanSelect,
     PriceCard,
     ControlPanel,
-    ErrorBoundary
+    ErrorBoundary,
+    useExtractValues
 } from './index'
 import './SecondForm.scss'
 
 function SecondForm() {
+    const vals = useExtractValues()
 
     return(
         <ErrorBoundary>
             <Form
                 onSubmit={(e) => e.preventDefault()}
                 className='form form-second'>
-                <CountrySelect />
-                <PlanSelect />
-                <PriceCard />
+                <CountrySelect country={vals.country} />
+                <PlanSelect plan={vals.plan} />
+                <PriceCard country={vals.country} plan={vals.plan} />
                 <ControlPanel />
             </Form>
         </ErrorBoundary>
