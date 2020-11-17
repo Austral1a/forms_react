@@ -7,9 +7,11 @@ import {
     useInputValidation
 } from '../index'
 
-function PhoneInput({isValid, setIsValid, phone, setPhone}) {
+function PhoneInput({setIsValid, phone, setPhone}) {
 
-    isValid = useInputValidation('phone', phone)
+    const isValid = useInputValidation('phone', phone)
+    setIsValid(isValid)
+
     return(
         <Input
             type='text'

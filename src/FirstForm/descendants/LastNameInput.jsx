@@ -6,9 +6,10 @@ import {
     useInputValidation
 } from '../index'
 
-function LastNameInput({isValid, setIsValid, lastName, setLastName}) {
+function LastNameInput({setIsValid, lastName, setLastName}) {
 
-    isValid = useInputValidation('name', lastName)
+    const isValid = useInputValidation('name', lastName)
+    setIsValid(isValid)
 
     return(
         <Input

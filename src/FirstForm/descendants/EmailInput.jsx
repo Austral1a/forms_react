@@ -7,9 +7,10 @@ import {
 } from '../index'
 
 
-function EmailInput({isValid, setIsValid, email, setEmail}) {
+function EmailInput({setIsValid, email, setEmail}) {
 
-    isValid = useInputValidation('email', email)
+    const isValid = useInputValidation('email', email)
+    setIsValid(isValid)
 
     return(
         <Input

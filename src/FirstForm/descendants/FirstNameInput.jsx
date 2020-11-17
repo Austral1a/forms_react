@@ -6,7 +6,7 @@ import {
     useInputValidation
 } from '../index'
 
-function FirstNameInput({isValid, setIsValid, firstName, setFirstName}) {
+function FirstNameInput({setIsValid, firstName, setFirstName}) {
 
     const firstNameInput = useRef(null)
 
@@ -15,8 +15,8 @@ function FirstNameInput({isValid, setIsValid, firstName, setFirstName}) {
     }, [])
 
 
-    isValid = useInputValidation('name', firstName)
-
+    const isValid = useInputValidation('name', firstName)
+    setIsValid(isValid)
     return(
         <Input
             ref={firstNameInput}
