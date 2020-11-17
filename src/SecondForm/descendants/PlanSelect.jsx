@@ -1,31 +1,14 @@
 import React from 'react'
-import {connect} from 'react-redux'
 import {Option, planChange, Select} from '../index'
+import {useDispatch} from 'react-redux'
 
-
-const mapStateToProps = (state) => ({
-    plan: state.secondFormReducer.plan
-})
-
-const mapDispatchToProps = (dispatch) => ({
-    planChange: (plan) => {
-        dispatch(planChange(plan))
-    }
-})
-
-function PlanSelect({
-    plan,
-    planChange
-}) {
-
-    const handlePlan = (e) => {
-        planChange(e.target.value)
-    }
+function PlanSelect({plan}) {
+    const dispatch = useDispatch()
 
     return(
         <Select
             defaultValue={plan}
-            onChange={handlePlan}
+            onChange={(e) => dispatch(planChange(e.target.value))}
         >
             <Option value='free' text='Free' />
             <Option value='basic' text='Basic' />
@@ -34,7 +17,4 @@ function PlanSelect({
     )
 }
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(PlanSelect)
+export default PlanSelect
