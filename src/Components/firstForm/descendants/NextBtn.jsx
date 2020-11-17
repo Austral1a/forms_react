@@ -1,46 +1,15 @@
-import React, {useEffect, useMemo} from 'react'
-import {connect} from 'react-redux'
+import React from 'react'
+import {Button, Link} from '../index'
 
-import {anyError, Button, firstFormHandler, Link} from '../index'
-
-const mapStateToProps = (state) => ({
-    isFirstNameValid: state.formValidationReducer.isFirstNameValid,
-    isLastNameValid: state.formValidationReducer.isLastNameValid,
-    isEmailValid: state.formValidationReducer.isEmailValid,
-    isPhoneValid: state.formValidationReducer.isPhoneValid,
-})
-
-const mapDispatchToProps = (dispatch) => ({
-    firstFormHandler: (noError) => {
-        dispatch(firstFormHandler(noError))
-    }
-})
-
-function NextBtn({
-    isFirstNameValid,
-    isLastNameValid,
-    isEmailValid,
-    isPhoneValid,
-    firstFormHandler,
-    disabled
-}) {
-
-    const anyErrorMemo = useMemo(() =>
-            anyError(isFirstNameValid, isLastNameValid, isEmailValid, isPhoneValid),
-        [isFirstNameValid, isLastNameValid, isEmailValid, isPhoneValid])
-
-    const handleClick = () => firstFormHandler(!anyErrorMemo)
+function NextBtn({disabled, onClick}) {
 
     return(
         <Button
-            onClick={handleClick}
+            onClick={onClick}
             disabled={disabled}
             text={<Link to='/second-form'>Next</Link>}
         />
     )
 }
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(NextBtn)
+export default NextBtn
