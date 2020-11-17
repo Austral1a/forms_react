@@ -20,7 +20,6 @@ const Input = React.forwardRef((
 
 
     const renderError = useCallback(() => {
-        console.log(hasError, value)
         if(!hasError) {
             return null
         } else if(value === '') {
@@ -32,7 +31,7 @@ const Input = React.forwardRef((
 
     return(
         <div className='input-container'>
-            {icon ? <span className='input-container__icon'><img src={icon}/></span> : null}
+            {icon && <span className='input-container__icon'><img src={icon}/></span>}
             <input
                 ref={ref}
                 type={type}
