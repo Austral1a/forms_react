@@ -1,17 +1,10 @@
 import React from 'react';
 import '../styles/general.scss'
-
 import {BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom'
-import {connect} from 'react-redux'
-
 import FirstForm from './firstForm/FirstForm'
 import SecondForm from './secondForm/SecondForm'
 
-const mapStateToProps = (state) => ({
-    isFirstFormSubmitted: state.firstFormReducer.isSubmitted
-})
-
-function Main({isFirstFormSubmitted}) {
+function Main() {
     return(
         <Router>
                 <Route path='/'>
@@ -21,14 +14,10 @@ function Main({isFirstFormSubmitted}) {
                     <FirstForm />
                 </Route>
                 <Route path='/second-form'>
-                    {isFirstFormSubmitted ? <SecondForm /> : <Redirect to='/first-form' />}
+                    <SecondForm />
                 </Route>
         </Router>
     )
 }
 
-
-export default connect(
-    mapStateToProps,
-    null
-)(Main)
+export default Main
