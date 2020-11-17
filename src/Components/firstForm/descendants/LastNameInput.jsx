@@ -1,17 +1,13 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {
     Input,
     validationMessages as msg,
-    userSvg
+    userSvg,
+    useInputValidation
 } from '../index'
-import useInputValidation from '../hooks/useInputValidation'
 
-function LastNameInput({
-    isValid,
-    setIsValid
-}) {
+function LastNameInput({isValid, setIsValid, lastName, setLastName}) {
 
-    const [lastName, setLastName] = useState('')
     isValid = useInputValidation('name', lastName)
 
     return(
