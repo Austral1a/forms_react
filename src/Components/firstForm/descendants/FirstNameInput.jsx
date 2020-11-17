@@ -1,16 +1,12 @@
-import React,{useRef, useEffect, useState} from 'react'
-import {connect} from 'react-redux'
+import React,{useRef, useEffect} from 'react'
 import {
     Input,
     userSvg,
-    validationMessages as msg
+    validationMessages as msg,
+    useInputValidation
 } from '../index'
-import useInputValidation from '../hooks/useInputValidation'
 
-function FirstNameInput({
-    isValid,
-    setIsValid
-}) {
+function FirstNameInput({isValid, setIsValid, firstName, setFirstName}) {
 
     const firstNameInput = useRef(null)
 
@@ -18,7 +14,7 @@ function FirstNameInput({
         firstNameInput.current.focus()
     }, [])
 
-    const [firstName, setFirstName] = useState('')
+
     isValid = useInputValidation('name', firstName)
 
     return(
