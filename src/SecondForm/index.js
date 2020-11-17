@@ -13,6 +13,7 @@ import PlanSelect from './descendants/PlanSelect'
 import PriceCard from './descendants/PriceCard'
 import ControlPanel from './descendants/ControlPanel'
 import ErrorBoundary from '../Components/ErrorBoundary'
+import useExtractValues from './hooks/useExtractValues'
 
 export {
     Input,
@@ -29,4 +30,5 @@ export {
     PlanSelect,
     PriceCard,
     ControlPanel,
-    ErrorBoundary}
+    ErrorBoundary,
+    useExtractValues}
