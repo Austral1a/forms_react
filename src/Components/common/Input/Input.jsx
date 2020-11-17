@@ -13,7 +13,8 @@ const Input = React.forwardRef((
         hasError,
         errorMessage,
         disabled,
-        icon
+        icon,
+        onFocus
     },
     ref,
 ) => {
@@ -45,6 +46,7 @@ const Input = React.forwardRef((
                     borderBottom: hasError && value !== '' ? '2px solid red' : 'inherit'
                 }}
                 disabled={disabled}
+                onFocus={onFocus}
             />
             {renderError()}
         </div>
