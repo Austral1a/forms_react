@@ -1,11 +1,5 @@
 import React from 'react'
-import {connect} from 'react-redux'
 import {Card, getPrice, subscriptions} from '../index'
-
-const mapStateToProps = (state) => ({
-    country: state.secondFormReducer.country,
-    plan: state.secondFormReducer.plan
-})
 
 function PriceCard({
     country,
@@ -19,6 +13,4 @@ function PriceCard({
     )
 }
 
-export default connect(
-    mapStateToProps
-)(PriceCard)
+export default PriceCard
