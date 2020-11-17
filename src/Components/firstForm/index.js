@@ -22,6 +22,7 @@ import NextBtn from './descendants/NextBtn'
 import ErrorBoundary from '../ErrorBoundary'
 import useExtractValues from './hooks/useExtractValues'
 import useInputValidation from './hooks/useInputValidation'
+import saveValues from '../../Store/FirstForm/saveValues'
 
 export {
     Form,
@@ -45,5 +46,6 @@ export {
     NextBtn,
     ErrorBoundary,
     useExtractValues,
-    useInputValidation
+    useInputValidation,
+    saveValues
 }
