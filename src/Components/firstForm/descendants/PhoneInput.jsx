@@ -1,19 +1,14 @@
-import React,{useState} from 'react'
+import React from 'react'
 import {
     Input,
     phoneMask,
     phoneSvg,
-    validationMessages as msg
+    validationMessages as msg,
+    useInputValidation
 } from '../index'
 
-import useInputValidation from '../hooks/useInputValidation'
+function PhoneInput({isValid, setIsValid, phone, setPhone}) {
 
-function PhoneInput({
-    isValid,
-    setIsValid
-    }) {
-
-    const [phone, setPhone] = useState('')
     isValid = useInputValidation('phone', phone)
     return(
         <Input
