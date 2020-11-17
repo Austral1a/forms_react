@@ -1,4 +1,5 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
+import {useDispatch} from 'react-redux'
 import {
     Form,
     FirstNameInput,
@@ -6,16 +7,32 @@ import {
     EmailInput,
     PhoneInput,
     NextBtn,
-    ErrorBoundary
+    ErrorBoundary,
+    useExtractValues,
+    saveValues
 } from './index'
 import './FirstForm.scss'
 
 function FirstForm() {
+    const vals = useExtractValues()
 
-    const [isFirstNameValid, setIsFirstNameValid] = useState(false)
-    const [isLastNameValid, setIsLastNameValid] = useState(false)
-    const [isEmailValid, setIsEmailValid] = useState(false)
-    const [isPhoneValid, setIsPhoneValid] = useState(false)
+    const [isFirstNameValid, setIsFirstNameValid] = useState(true)
+    const [isLastNameValid, setIsLastNameValid] = useState(true)
+    const [isEmailValid, setIsEmailValid] = useState(true)
+    const [isPhoneValid, setIsPhoneValid] = useState(true)
+    const [firstName, setFirstName] = useState('')
+    const [lastName, setLastName] = useState('')
+    const [email, setEmail] = useState('')
+    const [phone, setPhone] = useState('')
+
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        setFirstName(vals.firstName)
+        setLastName(vals.lastName)
+        setEmail(vals.email)
+        setPhone(vals.phone)
+    }, [])
 
     return(
         <ErrorBoundary>
@@ -24,13 +41,16 @@ function FirstForm() {
                     e.preventDefault()
                 }}
                 className='form form-first'>
-                <FirstNameInput setIsValid={setIsFirstNameValid} />
-                <LastNameInput setIsValid={setIsLastNameValid} />
-                <EmailInput setIsValid={setIsEmailValid} />
-                <PhoneInput setIsValid={setIsPhoneValid} />
-                <NextBtn disabled={
-                    !isFirstNameValid || !isLastNameValid || !isEmailValid || !isPhoneValid
-                } />
+                <FirstNameInput firstName={firstName} setFirstName={setFirstName} setIsValid={setIsFirstNameValid} />
+                <LastNameInput lastName={lastName} setLastName={setLastName} setIsValid={setIsLastNameValid} />
+                <EmailInput email={email} setEmail={setEmail} setIsValid={setIsEmailValid} />
+                <PhoneInput phone={phone} setPhone={setPhone} setIsValid={setIsPhoneValid} />
+                <NextBtn
+                    onClick={() => dispatch(saveValues(firstName, lastName, email, phone))}
+                    disabled={
+                        !isFirstNameValid || !isLastNameValid || !isEmailValid || !isPhoneValid
+                    }
+                />
             </Form>
         </ErrorBoundary>
     )
