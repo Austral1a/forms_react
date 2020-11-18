@@ -13,7 +13,7 @@ import useExtractValues from './hooks/useExtractValues'
 import useInputValidation from './hooks/useInputValidation'
 import saveValues from '../Store/FirstForm/saveValues'
 import useValidations from './hooks/useValidations'
-
+import {routes} from '../routes'
 
 export {
     Form,
@@ -30,5 +30,6 @@ export {
     useExtractValues,
     useInputValidation,
     saveValues,
-    useValidations
+    useValidations,
+    routes
 }

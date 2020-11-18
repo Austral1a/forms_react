@@ -13,7 +13,8 @@ import {
     phoneSvg,
     Button,
     Link,
-    useValidations
+    useValidations,
+    routes
 } from './index'
 import './FirstForm.scss'
 
@@ -99,7 +100,7 @@ function FirstForm() {
                     errorMessage={msg['phone']}
                     icon={phoneSvg}
                 />
-                <Link to='/second-form'>
+                <Link to={routes.secondForm}>
                     <Button
                         onClick={saveValuesToStore}
                         disabled={isBtnDisabled}

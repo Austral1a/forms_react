@@ -14,6 +14,7 @@ import PriceCard from './descendants/PriceCard'
 import ControlPanel from './descendants/ControlPanel'
 import ErrorBoundary from '../Components/ErrorBoundary'
 import useExtractValues from './hooks/useExtractValues'
+import {routes} from '../routes'
 
 export {
     Input,
@@ -31,4 +32,5 @@ export {
     PriceCard,
     ControlPanel,
     ErrorBoundary,
-    useExtractValues}
+    useExtractValues,
+    routes}

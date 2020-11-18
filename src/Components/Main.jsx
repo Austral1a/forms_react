@@ -3,17 +3,18 @@ import '../styles/general.scss'
 import {BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom'
 import FirstForm from '../FirstForm/FirstForm'
 import SecondForm from '../SecondForm/SecondForm'
+import {routes} from '../routes'
 
 function Main() {
     return(
         <Router>
                 <Route path='/'>
-                    <Redirect from='/' to='/first-form' />
+                    <Redirect from='/' to={routes.firstForm} />
                 </Route>
-                <Route path='/first-form'>
+                <Route path={routes.firstForm}>
                     <FirstForm />
                 </Route>
-                <Route path='/second-form'>
+                <Route path={routes.secondForm}>
                     <SecondForm />
                 </Route>
         </Router>
