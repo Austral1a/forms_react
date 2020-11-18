@@ -42,6 +42,7 @@ function SecondForm() {
                 <Select
                     defaultValue={country}
                     onChange={(e) => saveCountryInStore(e.target.value)}
+                    className='form-second__country'
                 >
                     <Option value='us' text='United States' />
                     <Option value='ua' text='Ukraine' />
@@ -49,12 +50,13 @@ function SecondForm() {
                 <Select
                     defaultValue={plan}
                     onChange={(e) => savePlanInStore(e.target.value)}
+                    className='form-second__plan'
                 >
                     <Option value='free' text='Free' />
                     <Option value='basic' text='Basic' />
                     <Option value='premium' text='Premium' />
                 </Select>
-                <Card>
+                <Card className='form-second__price'>
                     {getPrice(subscriptions, country, plan)} per month
                 </Card>
                 <div className='form-second__control'>
