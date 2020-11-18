@@ -17,6 +17,8 @@ import ErrorBoundary from '../Components/ErrorBoundary'
 import useExtractValues from './hooks/useExtractValues'
 import useInputValidation from './hooks/useInputValidation'
 import saveValues from '../Store/FirstForm/saveValues'
+import useValidations from './hooks/useValidations'
+
 
 export {
     Form,
@@ -37,5 +39,6 @@ export {
     ErrorBoundary,
     useExtractValues,
     useInputValidation,
-    saveValues
+    saveValues,
+    useValidations
 }
