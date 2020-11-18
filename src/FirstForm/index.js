@@ -3,7 +3,6 @@ import Input from '../Components/common/Input/Input'
 import Button from '../Components/common/Button/Button'
 import {phoneMask} from '../helpers/masks'
 import {validationMessages} from '../helpers/validationMessages'
-import anyError from '../helpers/isThereValidationError'
 import {Link} from 'react-router-dom'
 import userSvg from '../assets/user.svg'
 import emailSvg from '../assets/email.svg'
@@ -21,7 +20,6 @@ export {
     Button,
     phoneMask,
     validationMessages,
-    anyError,
     Link,
     userSvg,
     emailSvg,
