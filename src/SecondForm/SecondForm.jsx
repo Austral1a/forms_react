@@ -6,7 +6,7 @@ import {
     ErrorBoundary,
     useExtractValues,
     routes,
-    Button, getPrice, subscriptions, Card, Select, planChange, Option
+    Button, getPrice, subscriptions, Card, Select, planChange, Option, countryChange
 } from './index'
 import './SecondForm.scss'
 import {Link} from 'react-router-dom'
@@ -19,7 +19,13 @@ function SecondForm() {
             <Form
                 onSubmit={(e) => e.preventDefault()}
                 className='form form-second'>
-                <CountrySelect country={vals.country} />
+                <Select
+                    defaultValue={vals.country}
+                    onChange={(e) => dispatch(countryChange(e.target.value))}
+                >
+                    <Option value='us' text='United States' />
+                    <Option value='ua' text='Ukraine' />
+                </Select>
                 <Select
                     defaultValue={vals.plan}
                     onChange={(e) => dispatch(planChange(e.target.value))}
