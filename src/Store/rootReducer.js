@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux'
-import secondFormReducer from './SecondForm/secondFormReducer'
-import saveValueReducer from './FirstForm/saveValuesReducer'
+import secondFormReducer from './SecondForm/reducer'
+import saveValueReducer from './FirstForm/reducer'
 
 const rootReducer = combineReducers({
       secondFormReducer,
