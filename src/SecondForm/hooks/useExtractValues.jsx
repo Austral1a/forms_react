@@ -1,10 +1,10 @@
 import {useSelector} from 'react-redux'
 
 function useExtractValues() {
-    const values = {}
-    values.country = useSelector(state => state.secondFormReducer.country)
-    values.plan = useSelector(state => state.secondFormReducer.plan)
-    return values
+    return {
+        country: useSelector(state => state.secondFormReducer.country),
+        plan: useSelector(state => state.secondFormReducer.plan)
+    }
 }
 
 export default useExtractValues
