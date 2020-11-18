@@ -14,10 +14,10 @@ import {
     phoneMask,
     phoneSvg,
     Button,
-    Link
+    Link,
+    useValidations
 } from './index'
 import './FirstForm.scss'
-
 
 function FirstForm() {
     const firstNameInput = useRef(null)
@@ -35,16 +35,18 @@ function FirstForm() {
     const [phoneState, setPhoneState] = useState(phone)
     const [formErrors, setFormErrors] = useState({})
 
+    const {
+        isFirstNameValid,
+        isLastNameValid,
+        isEmailValid,
+        isPhoneValid
+    } = useValidations(firstNameState, lastNameState, emailState, phoneState)
+
     const dispatch = useDispatch()
     const memoDispatch = useCallback(
-        () => dispatch(saveValues(firstName, lastName, email, phone)),
-        [firstName, lastName, email, phone]
+        () => dispatch(saveValues(firstNameState, lastNameState, emailState, phoneState)),
+        [firstNameState, lastNameState, emailState, phoneState]
     )
-
-    const isEmailValid = useInputValidation('email', emailState)
-    const isPhoneValid = useInputValidation('phone', phoneState)
-    const isFirstNameValid = useInputValidation('name', firstNameState)
-    const isLastNameValid = useInputValidation('name', lastNameState)
 
     useEffect(() => {
         let errors = {}
