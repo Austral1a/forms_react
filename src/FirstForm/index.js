@@ -8,11 +8,6 @@ import {Link} from 'react-router-dom'
 import userSvg from '../assets/user.svg'
 import emailSvg from '../assets/email.svg'
 import phoneSvg from '../assets/phone.svg'
-import FirstNameInput from './descendants/FirstNameInput'
-import LastNameInput from './descendants/LastNameInput'
-import EmailInput from './descendants/EmailInput'
-import PhoneInput from './descendants/PhoneInput'
-import NextBtn from './descendants/NextBtn'
 import ErrorBoundary from '../Components/ErrorBoundary'
 import useExtractValues from './hooks/useExtractValues'
 import useInputValidation from './hooks/useInputValidation'
@@ -31,11 +26,6 @@ export {
     userSvg,
     emailSvg,
     phoneSvg,
-    FirstNameInput,
-    LastNameInput,
-    EmailInput,
-    PhoneInput,
-    NextBtn,
     ErrorBoundary,
     useExtractValues,
     useInputValidation,
