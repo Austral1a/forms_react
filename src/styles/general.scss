@@ -1,6 +1,10 @@
+@import '../utils/variables';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 * {
   margin: 0;
   padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bolder;
 }
 
 #root {
@@ -10,5 +14,5 @@
   grid-template-columns: 1fr;
   justify-items: center;
   align-items: center;
-  background-color: gainsboro;
+  background-color: $body-bg-color;
 }
