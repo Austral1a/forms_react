@@ -1,6 +1,4 @@
-import isInputValid from '../isInputValid'
-import patterns from '../patterns'
-
+import {isInputValid, patterns} from '../index'
 describe('patterns', () => {
 
     describe('name pattern', () => {

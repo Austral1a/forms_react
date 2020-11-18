@@ -1,4 +1,4 @@
-import Select from '../common/Select/Select'
+import Select from '../Select'
 import {shallow} from 'enzyme'
 
 describe("Select component", () => {

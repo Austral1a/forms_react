@@ -1,5 +1,5 @@
 import {shallow} from 'enzyme'
-import Option from '../common/Option/Option'
+import Option from '../Option'
 
 describe('Option component', () => {
     it("must render option's inner text", () => {
