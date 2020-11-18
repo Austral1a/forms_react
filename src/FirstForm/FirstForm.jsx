@@ -43,7 +43,7 @@ function FirstForm() {
     } = useValidations(firstNameState, lastNameState, emailState, phoneState)
 
     const dispatch = useDispatch()
-    const memoDispatch = useCallback(
+    const saveValuesToStore = useCallback(
         () => dispatch(saveValues(firstNameState, lastNameState, emailState, phoneState)),
         [firstNameState, lastNameState, emailState, phoneState]
     )
@@ -110,7 +110,7 @@ function FirstForm() {
                 {/*<PhoneInput phone={phone} setPhone={setPhone} setIsValid={setIsPhoneValid} />*/}
                 <Link to='/second-form'>
                     <Button
-                        onClick={memoDispatch}
+                        onClick={saveValuesToStore}
                         disabled={isBtnDisabled}
                         text='Next'
                     />
