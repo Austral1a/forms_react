@@ -21,12 +21,18 @@ import './FirstForm.scss'
 
 function FirstForm() {
     const firstNameInput = useRef(null)
-    const vals = useExtractValues()
+    // const vals = useExtractValues()
+    const {
+        firstName,
+        lastName,
+        email,
+        phone
+    } = useExtractValues()
 
-    const [firstName, setFirstName] = useState(vals.firstName)
-    const [lastName, setLastName] = useState(vals.lastName)
-    const [email, setEmail] = useState(vals.email)
-    const [phone, setPhone] = useState(vals.phone)
+    const [firstNameState, setFirstNameState] = useState(firstName)
+    const [lastNameState, setLastNameState] = useState(lastName)
+    const [emailState, setEmailState] = useState(email)
+    const [phoneState, setPhoneState] = useState(phone)
     const [formErrors, setFormErrors] = useState({})
 
     const dispatch = useDispatch()
@@ -35,10 +41,10 @@ function FirstForm() {
         [firstName, lastName, email, phone]
     )
 
-    const isEmailValid = useInputValidation('email', email)
-    const isPhoneValid = useInputValidation('phone', phone)
-    const isFirstNameValid = useInputValidation('name', firstName)
-    const isLastNameValid = useInputValidation('name', lastName)
+    const isEmailValid = useInputValidation('email', emailState)
+    const isPhoneValid = useInputValidation('phone', phoneState)
+    const isFirstNameValid = useInputValidation('name', firstNameState)
+    const isLastNameValid = useInputValidation('name', lastNameState)
 
     useEffect(() => {
         let errors = {}
@@ -59,8 +65,8 @@ function FirstForm() {
                     type='text'
                     placeholder='First Name'
                     onBlur={() => isFirstNameValid}
-                    onChange={e => setFirstName(e.target.value)}
-                    value={firstName}
+                    onChange={e => setFirstNameState(e.target.value)}
+                    value={firstNameState}
                     hasError={!formErrors.isFirstNameValid}
                     errorMessage={msg['firstName']}
                     icon={userSvg}
@@ -69,8 +75,8 @@ function FirstForm() {
                     type='text'
                     placeholder='Last Name'
                     onBlur={() => isLastNameValid}
-                    onChange={e => setLastName(e.target.value)}
-                    value={lastName}
+                    onChange={e => setLastNameState(e.target.value)}
+                    value={lastNameState}
                     hasError={!formErrors.isLastNameValid}
                     errorMessage={msg['lastName']}
                     icon={userSvg}
@@ -79,8 +85,8 @@ function FirstForm() {
                     type='text'
                     placeholder='Email'
                     onBlur={() => isEmailValid}
-                    onChange={e => setEmail(e.target.value)}
-                    value={email}
+                    onChange={e => setEmailState(e.target.value)}
+                    value={emailState}
                     hasError={!formErrors.isEmailValid}
                     errorMessage={msg['email']}
                     icon={emailSvg}
@@ -90,8 +96,8 @@ function FirstForm() {
                     placeholder='Phone'
                     onInput={phoneMask}
                     onBlur={() => isPhoneValid}
-                    onChange={e => setPhone(e.target.value)}
-                    value={phone}
+                    onChange={e => setPhoneState(e.target.value)}
+                    value={phoneState}
                     hasError={!isPhoneValid}
                     errorMessage={msg['phone']}
                     icon={phoneSvg}
