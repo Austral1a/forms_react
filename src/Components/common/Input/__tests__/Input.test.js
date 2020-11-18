@@ -1,4 +1,5 @@
-import Input from '../common/Input'
+import Input from '../Input'
+import React from 'react'
 import {shallow} from 'enzyme'
 import toJson from 'enzyme-to-json'
 import patterns from '../../../../helpers/patterns/patterns'
@@ -48,12 +49,6 @@ describe('Input component', function () {
         expect(firstName.find('input').prop('placeholder')).toBe('First Name')
         expect(lastName.find('input').prop('placeholder')).toBe('Last Name')
         expect(email.find('input').prop('placeholder')).toBe('Email')
-
-        expect(firstName.find('input').prop('placeholder')).not.toBe('FirstName')
-        expect(lastName.find('input').prop('placeholder')).not.toBe('LastName')
-        expect(email.find('input').prop('placeholder')).not.toBe('email')
-
-
     })
 
     it("must correctly handle 'value' prop", () => {
@@ -62,26 +57,24 @@ describe('Input component', function () {
 
         expect(kyle.find('input').prop('value')).toBe('Kyle')
         expect(kyl3.find('input').prop('value')).toBe('kyl3')
-
-        expect(kyle.find('input').prop('placeholder')).not.toBe('kyle')
-        expect(kyl3.find('input').prop('placeholder')).not.toBe('kyle')
     })
 
     describe("must correctly handle 'hasError' prop", () => {
         const wrapperWithError = shallow(<Input
             hasError={true}
             errorMessage={errorMsg}
+            value='some not g00d value'
         />)
         const wrapperWithNoError = shallow(<Input
             hasError={false}
             errorMessage={errorMsg}
+            value='some good value'
         />)
 
         it("must show error message if 'hasError' prop is true", () => {
 
             expect(wrapperWithError.find('.input-container__error')).toHaveLength(1)
             expect(wrapperWithError.find('.input-container__error').text()).toBe(errorMsg)
-            expect(wrapperWithError.find('.input-container__error').text()).not.toBe('something unexpected')
         })
 
         it("must not show error message if 'hasError' prop is false", () => {
@@ -121,7 +114,11 @@ describe('Input component', function () {
         })
         let wrapper
         const middleEach = (inputVal, pattern) => {
-            wrapper = shallow(<Input hasError={state.hasError} errorMessage={errorMsg} onBlur={() => handleBlur(pattern, inputVal)} />)
+            wrapper = shallow(<Input
+                hasError={state.hasError}
+                value='some value'
+                errorMessage={errorMsg}
+                onBlur={() => handleBlur(pattern, inputVal)} />)
             wrapper.find('.input-container__input').simulate('blur')
             wrapper.setProps({hasError: state.hasError})
         }
@@ -194,10 +191,3 @@ describe('Input component', function () {
         })
     })
 })
-
-
-
-
-
-
-
