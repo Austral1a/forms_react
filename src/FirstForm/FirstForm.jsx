@@ -5,7 +5,16 @@ import {
     NextBtn,
     ErrorBoundary,
     useExtractValues,
-    saveValues, validationMessages as msg, userSvg, Input, useInputValidation, emailSvg, phoneMask, phoneSvg
+    saveValues,
+    validationMessages as msg,
+    userSvg,
+    Input,
+    useInputValidation,
+    emailSvg,
+    phoneMask,
+    phoneSvg,
+    Button,
+    Link
 } from './index'
 import './FirstForm.scss'
 
@@ -21,6 +30,10 @@ function FirstForm() {
     const [formErrors, setFormErrors] = useState({})
 
     const dispatch = useDispatch()
+    const memoDispatch = useCallback(
+        () => dispatch(saveValues(firstName, lastName, email, phone)),
+        [firstName, lastName, email, phone]
+    )
 
     const isEmailValid = useInputValidation('email', email)
     const isPhoneValid = useInputValidation('phone', phone)
@@ -87,10 +100,13 @@ function FirstForm() {
                 {/*<LastNameInput lastName={lastName} setLastName={setLastName} setIsValid={setIsLastNameValid} />*/}
                 {/*<EmailInput email={email} setEmail={setEmail} setIsValid={setIsEmailValid} />*/}
                 {/*<PhoneInput phone={phone} setPhone={setPhone} setIsValid={setIsPhoneValid} />*/}
-                <NextBtn
-                    onClick={() => dispatch(saveValues(firstName, lastName, email, phone))}
-                    disabled={isBtnDisabled}
-                />
+                <Link to='/second-form'>
+                    <Button
+                        onClick={memoDispatch}
+                        disabled={isBtnDisabled}
+                        text='Next'
+                    />
+                </Link>
             </Form>
         </ErrorBoundary>
     )
