@@ -6,7 +6,7 @@ function Option({
     text,
     className
 }) {
-    const customClasses = classNames(className)
+    const customClasses = classNames('select__option', className)
     return (
         <option
             className={customClasses}
