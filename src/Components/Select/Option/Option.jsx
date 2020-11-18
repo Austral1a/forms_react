@@ -1,7 +1,7 @@
 import React from 'react'
 import classNames from 'classnames/dedupe'
 
-function Option({
+export function Option({
     value,
     text,
     className
@@ -17,4 +17,3 @@ function Option({
     )
 }
 
-export default Option

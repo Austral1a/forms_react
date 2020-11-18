@@ -2,7 +2,7 @@ import React from 'react'
 import classNames from 'classnames/dedupe'
 import './Form.scss'
 
-function Form({
+export function Form({
     children,
     onSubmit,
     action,
@@ -19,5 +19,3 @@ function Form({
         </form>
     )
 }
-
-export default Form

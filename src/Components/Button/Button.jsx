@@ -2,7 +2,7 @@ import React from 'react'
 import classNames from 'classnames/dedupe'
 import './Button.scss'
 
-function Button({
+export function Button({
     text,
     onClick,
     disabled,
@@ -15,5 +15,3 @@ function Button({
         </button>
     )
 }
-
-export default Button

@@ -1,13 +1,14 @@
-import Input from '../Components/common/Input/Input'
-import Select from '../Components/common/Select/Select'
-import Option from '../Components/common/Option/Option'
-import Form from '../Components/common/Form/Form'
-import Card from '../Components/common/Card/Card'
-import subscriptions from '../helpers/subscriptions/subscriptions'
+/*
+import Input from '../Components/Input/Input'
+import Select from '../Components/Select/Select'
+import Option from '../Components/Select/Option/Option'
+import Form from '../Components/Form/Form'
+import Card from '../Components/Card/Card'
+import subscriptions from '../helpers/subscriptions'
 import getPrice from '../helpers/getPrice/getPrice'
 import {countryChange} from '../Store/SecondForm/actions'
 import {planChange} from '../Store/SecondForm/actions'
-import Button from '../Components/common/Button/Button'
+import Button from '../Components/Button/Button'
 import ErrorBoundary from '../ErrorBoundary'
 import useExtractValues from './hooks/useExtractValues'
 import {routes} from '../routes'
@@ -28,3 +29,8 @@ export {
     useExtractValues,
     routes,
     Link}
+*/
+
+export * from './SecondForm'
+export * from './hooks'
+export * from './SecondForm.scss'

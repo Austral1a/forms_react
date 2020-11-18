@@ -1,5 +1,5 @@
 import {useSelector} from 'react-redux'
-function useExtractValues() {
+export function useExtractValues() {
     return {
         firstName: useSelector(state => state.saveValueReducer.firstName),
         lastName: useSelector(state => state.saveValueReducer.lastName),
@@ -7,5 +7,3 @@ function useExtractValues() {
         phone: useSelector(state => state.saveValueReducer.phone)
     }
 }
-
-export default useExtractValues

@@ -1,13 +1,13 @@
-import {SAVE_VALUES_IN_STORE} from './action-types'
+import {SAVE_VALUES_IN_STORE} from './index'
 
-const initState = {
+export const initState = {
     firstName: '',
     lastName: '',
     email: '',
     phone: ''
 }
 
-const saveValueReducer = (state = initState, action) => {
+export const saveValueReducer = (state = initState, action) => {
     switch(action.type) {
         case SAVE_VALUES_IN_STORE:
             return {
@@ -22,4 +22,3 @@ const saveValueReducer = (state = initState, action) => {
     }
 }
 
-export default saveValueReducer

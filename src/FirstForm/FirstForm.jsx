@@ -1,24 +1,17 @@
-import React, {useState, useEffect, useCallback} from 'react'
+import {validationMessages as msg, phoneMask} from '../helpers'
+import {Form, Input, Button} from '../Components'
+import {saveValues} from '../Store/FirstForm'
+import {Link} from 'react-router-dom'
+import {useState, useEffect, useCallback} from 'react'
 import {useDispatch} from 'react-redux'
-import {
-    Form,
-    ErrorBoundary,
-    useExtractValues,
-    saveValues,
-    validationMessages as msg,
-    userSvg,
-    Input,
-    emailSvg,
-    phoneMask,
-    phoneSvg,
-    Button,
-    Link,
-    useValidations,
-    routes
-} from './index'
-import './FirstForm.scss'
+import {useExtractValues, useValidations} from './index'
+import {routes} from '../routes'
+import {ErrorBoundary} from '../ErrorBoundary'
+import emailSvg from '../assets/email.svg'
+import userSvg from '../assets/user.svg'
+import phoneSvg from '../assets/phone.svg'
 
-function FirstForm() {
+export function FirstForm() {
     const {
         firstName,
         lastName,
@@ -51,6 +44,11 @@ function FirstForm() {
         setFormErrors(errors)
     }, [isEmailValid, isPhoneValid, isFirstNameValid, isLastNameValid])
 
+    const firstNameChange = e => setFirstNameState(e.target.value)
+    const lastNameChange = e => setLastNameState(e.target.value)
+    const emailChange = e => setEmailState(e.target.value)
+    const phoneChange = e => setPhoneState(e.target.value)
+
     const isBtnDisabled = Object.values(formErrors).includes(false)
     return(
         <ErrorBoundary>
@@ -62,8 +60,8 @@ function FirstForm() {
                 <Input
                     type='text'
                     placeholder='First Name'
-                    onBlur={() => isFirstNameValid}
-                    onChange={e => setFirstNameState(e.target.value)}
+                    onBlur={isFirstNameValid}
+                    onChange={firstNameChange}
                     value={firstNameState}
                     hasError={!formErrors.isFirstNameValid}
                     errorMessage={msg['firstName']}
@@ -73,8 +71,8 @@ function FirstForm() {
                 <Input
                     type='text'
                     placeholder='Last Name'
-                    onBlur={() => isLastNameValid}
-                    onChange={e => setLastNameState(e.target.value)}
+                    onBlur={isLastNameValid}
+                    onChange={lastNameChange}
                     value={lastNameState}
                     hasError={!formErrors.isLastNameValid}
                     errorMessage={msg['lastName']}
@@ -84,8 +82,8 @@ function FirstForm() {
                 <Input
                     type='text'
                     placeholder='Email'
-                    onBlur={() => isEmailValid}
-                    onChange={e => setEmailState(e.target.value)}
+                    onBlur={isEmailValid}
+                    onChange={emailChange}
                     value={emailState}
                     hasError={!formErrors.isEmailValid}
                     errorMessage={msg['email']}
@@ -96,8 +94,8 @@ function FirstForm() {
                     type='text'
                     placeholder='Phone'
                     onInput={phoneMask}
-                    onBlur={() => isPhoneValid}
-                    onChange={e => setPhoneState(e.target.value)}
+                    onBlur={isPhoneValid}
+                    onChange={phoneChange}
                     value={phoneState}
                     hasError={!isPhoneValid}
                     errorMessage={msg['phone']}
@@ -116,5 +114,3 @@ function FirstForm() {
         </ErrorBoundary>
     )
 }
-
-export default FirstForm

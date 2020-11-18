@@ -1,5 +1,5 @@
-const getPrice = (subsc, country, plan) => {
+import {subscriptions as subsc} from '../index'
+
+export const getPrice = (subsc, country, plan) => {
     return subsc[country][plan]
 }
-
-export default getPrice

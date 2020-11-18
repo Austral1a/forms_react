@@ -2,7 +2,7 @@ import React, {useEffect, useMemo, useCallback} from 'react'
 import classNames from 'classnames'
 import './Input.scss'
 
-const Input = React.forwardRef((
+export const Input = React.forwardRef((
     {
         type,
         placeholder,
@@ -42,5 +42,3 @@ const Input = React.forwardRef((
         </div>
     )
 })
-
-export default Input

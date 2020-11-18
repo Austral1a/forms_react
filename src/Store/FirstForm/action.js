@@ -1,6 +1,6 @@
-import {SAVE_VALUES_IN_STORE} from './action-types'
+export const SAVE_VALUES_IN_STORE = 'SAVE_VALUES_IN_STORE'
 
-const saveValues = (firstName, lastName, email, phone) => ({
+export const saveValues = (firstName, lastName, email, phone) => ({
     type: SAVE_VALUES_IN_STORE,
     payload: {
         firstName,
@@ -9,5 +9,3 @@ const saveValues = (firstName, lastName, email, phone) => ({
         phone
     }
 })
-
-export default saveValues

@@ -11,4 +11,3 @@ export const subscriptions = {
     }
 };
 
-export default subscriptions;

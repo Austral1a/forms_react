@@ -3,7 +3,7 @@ import classNames from 'classnames/dedupe'
 import './Card.scss'
 
 
-function Card({
+export function Card({
     style,
     className,
     children
@@ -18,5 +18,3 @@ function Card({
         </div>
     )
 }
-
-export default Card

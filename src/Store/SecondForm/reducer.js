@@ -1,6 +1,6 @@
-import {COUNTRY_SELECT_CHANGE, PLAN_SELECT_CHANGE} from './action-types'
+import {COUNTRY_SELECT_CHANGE, PLAN_SELECT_CHANGE} from './index'
 
-const initState = {
+export const initState = {
     country: 'us',
     plan: 'free'
 }

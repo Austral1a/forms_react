@@ -1,7 +1,7 @@
 import {phoneMask} from '../masks'
 
 import {shallow} from 'enzyme'
-import Input from '../../../Components/common/Input/Input'
+import Input from '../../../Components/Input/Input'
 
 describe('Phone Mask', () => {
     it("phone mask must executing", () => {

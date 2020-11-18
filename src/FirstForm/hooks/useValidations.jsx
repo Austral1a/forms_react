@@ -1,7 +1,6 @@
-import React from 'react'
 import {useInputValidation} from '../index'
 
-function useValidations(firstName, lastName, email, phone) {
+export function useValidations(firstName, lastName, email, phone) {
     return {
         isFirstNameValid: useInputValidation('name', firstName),
         isLastNameValid: useInputValidation('name', lastName),
@@ -10,4 +9,3 @@ function useValidations(firstName, lastName, email, phone) {
     }
 }
 
-export default useValidations

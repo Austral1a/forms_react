@@ -1,4 +1,5 @@
-import {COUNTRY_SELECT_CHANGE, PLAN_SELECT_CHANGE} from './action-types'
+export const COUNTRY_SELECT_CHANGE = 'COUNTRY_SELECT_CHANGE'
+export const PLAN_SELECT_CHANGE = 'PLAN_SELECT_CHANGE'
 
 export const countryChange = (country) => ({
     type: COUNTRY_SELECT_CHANGE,
