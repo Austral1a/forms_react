@@ -68,6 +68,7 @@ function FirstForm() {
                     hasError={!formErrors.isFirstNameValid}
                     errorMessage={msg['firstName']}
                     icon={userSvg}
+                    className={'form-first__first-name'}
                 />
                 <Input
                     type='text'
@@ -78,6 +79,7 @@ function FirstForm() {
                     hasError={!formErrors.isLastNameValid}
                     errorMessage={msg['lastName']}
                     icon={userSvg}
+                    className={'form-first__last-name'}
                 />
                 <Input
                     type='text'
@@ -88,6 +90,7 @@ function FirstForm() {
                     hasError={!formErrors.isEmailValid}
                     errorMessage={msg['email']}
                     icon={emailSvg}
+                    className={'form-first__email'}
                 />
                 <Input
                     type='text'
@@ -99,12 +102,14 @@ function FirstForm() {
                     hasError={!isPhoneValid}
                     errorMessage={msg['phone']}
                     icon={phoneSvg}
+                    className={'form-first__phone'}
                 />
                 <Link to={routes.secondForm}>
                     <Button
                         onClick={saveValuesToStore}
                         disabled={isBtnDisabled}
                         text='Next'
+                        className='form-first__next'
                     />
                 </Link>
             </Form>
