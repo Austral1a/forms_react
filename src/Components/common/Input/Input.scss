@@ -1,7 +1,7 @@
 .input-container {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(2, 30px);
+  grid-template-rows: 30px 50px;
   position: relative;
 
   .input-container__input {
