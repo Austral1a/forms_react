@@ -15,6 +15,7 @@ import ControlPanel from './descendants/ControlPanel'
 import ErrorBoundary from '../Components/ErrorBoundary'
 import useExtractValues from './hooks/useExtractValues'
 import {routes} from '../routes'
+import {Link} from 'react-router-dom'
 
 export {
     Input,
@@ -33,4 +34,5 @@ export {
     ControlPanel,
     ErrorBoundary,
     useExtractValues,
-    routes}
+    routes,
+    Link}
