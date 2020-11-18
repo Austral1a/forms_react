@@ -1,4 +1,4 @@
-import Card from '../common/Card'
+import Card from '../Card'
 import {shallow} from 'enzyme'
 describe('Card Component' ,() => {
     it("must set style", () => {
