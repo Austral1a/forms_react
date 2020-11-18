@@ -1,12 +1,15 @@
 import React from 'react'
+import classNames from 'classnames/dedupe'
 
 function Option({
     value,
-    text
+    text,
+    className
 }) {
+    const customClasses = classNames(className)
     return (
         <option
-            className='select__option'
+            className={customClasses}
             value={value}
         >
             {text}

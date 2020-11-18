@@ -1,15 +1,17 @@
 import React from 'react'
+import classNames from 'classnames/dedupe'
 import './Form.scss'
 
 function Form({
-                  children,
-                  onSubmit,
-                  action,
-                  className
-              }) {
+    children,
+    onSubmit,
+    action,
+    className
+    }) {
+    const customClasses = classNames('form', className)
     return(
         <form
-            className={className ? className : ''}
+            className={customClasses}
             action={action}
             onSubmit={onSubmit}
         >

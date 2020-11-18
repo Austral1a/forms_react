@@ -1,5 +1,5 @@
 import React from 'react'
-
+import classNames from 'classnames/dedupe'
 import './Button.scss'
 
 function Button({
@@ -8,8 +8,9 @@ function Button({
     disabled,
     className
 }) {
+    const customClasses = classNames('button', className)
     return (
-        <button className={`button${className ? ' ' + className : ''}`} onClick={onClick} disabled={disabled}>
+        <button className={customClasses} onClick={onClick} disabled={disabled}>
             {text}
         </button>
     )
