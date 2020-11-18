@@ -12,10 +12,10 @@ const saveValueReducer = (state = initState, action) => {
         case SAVE_VALUES_IN_STORE:
             return {
                 ...state,
-                firstName: action.firstName,
-                lastName: action.lastName,
-                email: action.email,
-                phone: action.phone
+                firstName: action.payload.firstName,
+                lastName: action.payload.lastName,
+                email: action.payload.email,
+                phone: action.payload.phone
             }
         default:
             return state

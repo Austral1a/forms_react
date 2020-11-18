@@ -10,12 +10,12 @@ const secondFormReducer = (state = initState, action) => {
         case COUNTRY_SELECT_CHANGE:
             return {
                 ...state,
-                country: action.country
+                country: action.payload.country
             }
         case PLAN_SELECT_CHANGE:
             return {
                 ...state,
-                plan: action.plan
+                plan: action.payload.plan
             }
         default:
             return state
