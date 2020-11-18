@@ -43,6 +43,7 @@
     ]
   },
   "devDependencies": {
+    "classnames": "^2.2.6",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.5"
   }
