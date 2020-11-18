@@ -1,15 +1,13 @@
-import React, {useState, useEffect, useRef, useMemo, useCallback} from 'react'
+import React, {useState, useEffect, useCallback} from 'react'
 import {useDispatch} from 'react-redux'
 import {
     Form,
-    NextBtn,
     ErrorBoundary,
     useExtractValues,
     saveValues,
     validationMessages as msg,
     userSvg,
     Input,
-    useInputValidation,
     emailSvg,
     phoneMask,
     phoneSvg,
@@ -20,8 +18,6 @@ import {
 import './FirstForm.scss'
 
 function FirstForm() {
-    const firstNameInput = useRef(null)
-    // const vals = useExtractValues()
     const {
         firstName,
         lastName,
@@ -63,7 +59,6 @@ function FirstForm() {
                 }}
                 className='form form-first'>
                 <Input
-                    ref={firstNameInput}
                     type='text'
                     placeholder='First Name'
                     onBlur={() => isFirstNameValid}
@@ -104,10 +99,6 @@ function FirstForm() {
                     errorMessage={msg['phone']}
                     icon={phoneSvg}
                 />
-                {/*<FirstNameInput firstName={firstName} setFirstName={setFirstName} setIsValid={setIsFirstNameValid} />*/}
-                {/*<LastNameInput lastName={lastName} setLastName={setLastName} setIsValid={setIsLastNameValid} />*/}
-                {/*<EmailInput email={email} setEmail={setEmail} setIsValid={setIsEmailValid} />*/}
-                {/*<PhoneInput phone={phone} setPhone={setPhone} setIsValid={setIsPhoneValid} />*/}
                 <Link to='/second-form'>
                     <Button
                         onClick={saveValuesToStore}
