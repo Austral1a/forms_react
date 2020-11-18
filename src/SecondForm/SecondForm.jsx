@@ -56,8 +56,8 @@ function SecondForm() {
                     <Option value='basic' text='Basic' />
                     <Option value='premium' text='Premium' />
                 </Select>
-                <Card className='form-second__price'>
-                    {getPrice(subscriptions, country, plan)} per month
+                <Card className='form-second__card'>
+                    <p><span className='form-second__price'>{getPrice(subscriptions, country, plan)}</span> per month</p>
                 </Card>
                 <div className='form-second__control'>
                     <Link to={routes.firstForm}>
