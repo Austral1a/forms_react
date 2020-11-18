@@ -8,10 +8,6 @@ import getPrice from '../helpers/getPrice'
 import countryChange from '../Store/SecondForm/country'
 import planChange from '../Store/SecondForm/plan'
 import Button from '../Components/common/Button/Button'
-import CountrySelect from './descendants/CountrySelect'
-import PlanSelect from './descendants/PlanSelect'
-import PriceCard from './descendants/PriceCard'
-import ControlPanel from './descendants/ControlPanel'
 import ErrorBoundary from '../Components/ErrorBoundary'
 import useExtractValues from './hooks/useExtractValues'
 import {routes} from '../routes'
@@ -28,10 +24,6 @@ export {
     countryChange,
     planChange,
     Button,
-    CountrySelect,
-    PlanSelect,
-    PriceCard,
-    ControlPanel,
     ErrorBoundary,
     useExtractValues,
     routes,
