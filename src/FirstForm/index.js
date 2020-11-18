@@ -10,7 +10,7 @@ import phoneSvg from '../assets/phone.svg'
 import ErrorBoundary from '../ErrorBoundary'
 import useExtractValues from './hooks/useExtractValues'
 import useInputValidation from './hooks/useInputValidation'
-import saveValues from '../Store/FirstForm/saveValues'
+import saveValues from '../Store/FirstForm/action'
 import useValidations from './hooks/useValidations'
 import {routes} from '../routes'
 
