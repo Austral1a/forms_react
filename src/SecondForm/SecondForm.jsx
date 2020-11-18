@@ -1,18 +1,38 @@
-import React from 'react'
+import React, {useCallback} from 'react'
 import {
     Form,
-    CountrySelect,
-    PlanSelect,
     ErrorBoundary,
     useExtractValues,
     routes,
-    Button, getPrice, subscriptions, Card, Select, planChange, Option, countryChange
+    Button,
+    getPrice,
+    subscriptions,
+    Card,
+    Select,
+    planChange,
+    Option,
+    countryChange,
+    Link
 } from './index'
 import './SecondForm.scss'
-import {Link} from 'react-router-dom'
+import {useDispatch} from 'react-redux'
 
 function SecondForm() {
-    const vals = useExtractValues()
+    const {
+        country,
+        plan
+    } = useExtractValues()
+    const dispatch = useDispatch()
+
+    const saveCountryInStore = useCallback(
+        (country) => dispatch(countryChange(country)),
+        [country]
+    )
+
+    const savePlanInStore = useCallback(
+        (plan) => dispatch(planChange(plan)),
+        [plan]
+    )
 
     return(
         <ErrorBoundary>
@@ -20,22 +40,22 @@ function SecondForm() {
                 onSubmit={(e) => e.preventDefault()}
                 className='form form-second'>
                 <Select
-                    defaultValue={vals.country}
-                    onChange={(e) => dispatch(countryChange(e.target.value))}
+                    defaultValue={country}
+                    onChange={(e) => saveCountryInStore(e.target.value)}
                 >
                     <Option value='us' text='United States' />
                     <Option value='ua' text='Ukraine' />
                 </Select>
                 <Select
-                    defaultValue={vals.plan}
-                    onChange={(e) => dispatch(planChange(e.target.value))}
+                    defaultValue={plan}
+                    onChange={(e) => savePlanInStore(e.target.value)}
                 >
                     <Option value='free' text='Free' />
                     <Option value='basic' text='Basic' />
                     <Option value='premium' text='Premium' />
-                </Select>>
+                </Select>
                 <Card>
-                    {getPrice(subscriptions, vals.country, vals.plan)} per month
+                    {getPrice(subscriptions, country, plan)} per month
                 </Card>
                 <div className='form-second__control'>
                     <Link to={routes.firstForm}>
