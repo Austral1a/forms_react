@@ -1,3 +1,5 @@
+@import '../../styles/variables';
+
 .input-container {
   display: grid;
   grid-template-columns: 1fr;
@@ -9,8 +11,12 @@
     border-radius: 4px;
   }
 
+  .input-container__error {
+    color: $text-error;
+  }
+
   .input-container__input_error {
-    border-bottom: 2px solid red;
+    border-bottom: 2px solid $input-error;
   }
 
   .input-container__icon {
