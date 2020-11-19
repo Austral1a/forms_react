@@ -6,9 +6,10 @@ export function Form({
     children,
     onSubmit,
     action,
-    className
+    className,
+    isValid
     }) {
-    const customClasses = classNames('form', className)
+    const customClasses = classNames('form', className, {'form_success': isValid})
     return(
         <form
             className={customClasses}
