@@ -1,4 +1,4 @@
-import {validationMessages as msg, phoneMask} from '../helpers'
+import {phoneMask, translations} from '../helpers'
 import {useState, useEffect, useCallback} from 'react'
 import {useExtractValues, useValidations} from './index'
 import {phoneSvg, emailSvg, userSvg} from '../assets'
@@ -47,6 +47,7 @@ export function FirstForm() {
     const emailChange = e => setEmailState(e.target.value)
     const phoneChange = e => setPhoneState(e.target.value)
 
+    const {inputs: {firstNameT, emailT, lastNameT, phoneT}} = translations
     const isBtnDisabled = Object.values(formErrors).includes(false)
     return(
         <ErrorBoundary>
@@ -57,46 +58,46 @@ export function FirstForm() {
                 className='form form-first'>
                 <Input
                     type='text'
-                    placeholder='First Name'
+                    placeholder={firstNameT.placeholder}
                     onBlur={isFirstNameValid}
                     onChange={firstNameChange}
                     value={firstNameState}
                     hasError={!formErrors.isFirstNameValid}
-                    errorMessage={msg['firstName']}
+                    errorMessage={firstNameT.errMessage}
                     icon={userSvg}
                     className={'form-first__first-name'}
                 />
                 <Input
                     type='text'
-                    placeholder='Last Name'
+                    placeholder={lastNameT.placeholder}
                     onBlur={isLastNameValid}
                     onChange={lastNameChange}
                     value={lastNameState}
                     hasError={!formErrors.isLastNameValid}
-                    errorMessage={msg['lastName']}
+                    errorMessage={lastNameT.errMessage}
                     icon={userSvg}
                     className={'form-first__last-name'}
                 />
                 <Input
                     type='text'
-                    placeholder='Email'
+                    placeholder={emailT.placeholder}
                     onBlur={isEmailValid}
                     onChange={emailChange}
                     value={emailState}
                     hasError={!formErrors.isEmailValid}
-                    errorMessage={msg['email']}
+                    errorMessage={emailT.errMessage}
                     icon={emailSvg}
                     className={'form-first__email'}
                 />
                 <Input
                     type='text'
-                    placeholder='Phone'
+                    placeholder={phoneT.placeholder}
                     onInput={phoneMask}
                     onBlur={isPhoneValid}
                     onChange={phoneChange}
                     value={phoneState}
                     hasError={!isPhoneValid}
-                    errorMessage={msg['phone']}
+                    errorMessage={phoneT.errMessage}
                     icon={phoneSvg}
                     className={'form-first__phone'}
                 />
