@@ -55,7 +55,9 @@ export function FirstForm() {
                 onSubmit={(e) => {
                     e.preventDefault()
                 }}
-                className='form form-first'>
+                className='form form-first'
+                isValid={!isBtnDisabled}
+            >
                 <Input
                     type='text'
                     placeholder={firstNameT.placeholder}
