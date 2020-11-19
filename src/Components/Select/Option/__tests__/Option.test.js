@@ -12,7 +12,6 @@ describe('Option component', () => {
         const text = 'this is options'
         const wrapper = shallow(<Option text={text} />)
         expect(wrapper.find('.select__option').text()).toBe(text)
-        expect(wrapper.find('.select__option').text()).not.toBe(" " + text)
     })
 
     it("option must have value attribute", () => {

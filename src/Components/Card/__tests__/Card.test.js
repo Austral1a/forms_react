@@ -25,7 +25,6 @@ describe('Card Component' ,() => {
         const wrapper = shallow(<Card />)
 
         expect(wrapper.find('.card').prop('className')).toBe('card')
-        expect(wrapper.find('.card').prop('className')).not.toBe('card ')
     })
 
     it("must render children", () => {
@@ -34,6 +33,5 @@ describe('Card Component' ,() => {
 
         expect(wrapper.find('p')).toHaveLength(1)
         expect(wrapper.find('p').text()).toBe(text)
-        expect(wrapper.find('p').text()).not.toBe(text + ' ')
     })
 })
