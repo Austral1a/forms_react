@@ -1,4 +1,3 @@
-export * from './validationMessages'
 export * from './patterns'
 export * from './subscriptions'
 export * from './masks'
