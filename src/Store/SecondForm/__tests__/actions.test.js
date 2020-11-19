@@ -1,5 +1,5 @@
-import * as types from '../action-types'
-import * as actions from '../actions'
+import {PLAN_SELECT_CHANGE, COUNTRY_SELECT_CHANGE,
+        planChange, countryChange} from '../actions'
 
 describe('Second Form actions', () => {
     it('must create an action to save selected country in store', () => {
@@ -7,10 +7,10 @@ describe('Second Form actions', () => {
             country: 'us'
         }
         const expectedAction = {
-            type: types.COUNTRY_SELECT_CHANGE,
+            type: COUNTRY_SELECT_CHANGE,
             payload
         }
-        expect(actions.countryChange(
+        expect(countryChange(
             payload.country
         )).toStrictEqual(expectedAction)
     })
@@ -20,10 +20,10 @@ describe('Second Form actions', () => {
             plan: 'basic'
         }
         const expectedAction = {
-            type: types.PLAN_SELECT_CHANGE,
+            type: PLAN_SELECT_CHANGE,
             payload
         }
-        expect(actions.planChange(
+        expect(planChange(
             payload.plan
         )).toStrictEqual(expectedAction)
     })

@@ -1,5 +1,4 @@
-import saveValues from '../action'
-import * as types from '../action-types'
+import {SAVE_VALUES_IN_STORE, saveValues} from '../action'
 
 describe('action', () => {
     it('must create an action to save value into store', () => {
@@ -10,7 +9,7 @@ describe('action', () => {
             phone: '(123) 456 - 7890'
         }
         const expectedAction = {
-            type: types.SAVE_VALUES_IN_STORE,
+            type: SAVE_VALUES_IN_STORE,
             payload
         }
         expect(saveValues(
