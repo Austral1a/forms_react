@@ -1,5 +1,4 @@
-/*
-export phoneSvg from './phone.svg'
-export emailSvg from './email.svg'
-export userSvg from './user.svg'
-*/
+import phoneSvg from './phone.svg'
+import emailSvg from './email.svg'
+import userSvg from './user.svg'
+export {phoneSvg, emailSvg, userSvg}
