@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Option component Option must match snapshot 1`] = `
+<option
+  className="select__option"
+/>
+`;

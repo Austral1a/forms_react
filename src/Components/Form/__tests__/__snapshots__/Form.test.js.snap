@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form component Form must match snapshot 1`] = `
+<form
+  className="form"
+/>
+`;

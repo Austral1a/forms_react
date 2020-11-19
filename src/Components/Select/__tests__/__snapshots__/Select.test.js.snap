@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select component Select must match snapshot 1`] = `
+<select
+  className="select"
+  defaultValue={null}
+/>
+`;
