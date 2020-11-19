@@ -8,14 +8,18 @@ export const initState = {
 const secondFormReducer = (state = initState, action) => {
     switch (action.type) {
         case COUNTRY_SELECT_CHANGE:
+            const {payload: {country}} = action
+
             return {
                 ...state,
-                country: action.payload.country
+                country: country
             }
         case PLAN_SELECT_CHANGE:
+            const {payload: {plan}} = action
+
             return {
                 ...state,
-                plan: action.payload.plan
+                plan: plan
             }
         default:
             return state
