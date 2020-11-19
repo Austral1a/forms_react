@@ -3,3 +3,9 @@ export const patterns = {
     email: /^[a-zA-Z]+@[a-zA-Z]+\.[a-zA-Z]+$/,
     phone: /^\(\d{3}\)\s\d{3}\s-\s\d{4}$/
 };
+
+export const patternNames = {
+    name: 'name',
+    email: 'email',
+    phone: 'phone'
+}
