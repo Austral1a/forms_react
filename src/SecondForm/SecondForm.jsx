@@ -1,36 +1,36 @@
-import React, {useCallback} from 'react'
-import {useDispatch} from 'react-redux'
-import {Form, Button, Card, Select, Option} from '../Components'
-import {subscriptions, getPrice, translations} from '../helpers'
-import {planChange, countryChange} from '../Store/SecondForm'
-import {useExtractValues} from './index'
-import {routes} from '../routes'
-import {ErrorBoundary} from '../ErrorBoundary'
-import {Link} from 'react-router-dom'
-import './SecondForm.scss'
+import React, {useCallback} from 'react';
+import {useDispatch} from 'react-redux';
+import {Form, Button, Card, Select, Option} from '../Components';
+import {subscriptions, getPrice, translations} from '../helpers';
+import {planChange, countryChange} from '../Store/SecondForm';
+import {useExtractValues} from './index';
+import {routes} from '../routes';
+import {ErrorBoundary} from '../ErrorBoundary';
+import {Link} from 'react-router-dom';
+import './SecondForm.scss';
 
-function SecondForm() {
+export function SecondForm() {
 
     const {select: {
         country: {us, ua, uaVal, usVal},
         plan: {free, basic, premium, freeVal, basicVal, premiumVal}}
-    } = translations
+    } = translations;
     const {
         country,
         plan
     } = useExtractValues()
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
     const saveCountryInStore = useCallback(
         (e) => dispatch(countryChange(e.target.value)),
         [country]
-    )
+    );
 
     const savePlanInStore = useCallback(
         (e) => dispatch(planChange(e.target.value)),
         [plan]
-    )
-    const onSubmit = (e) => e.preventDefault()
+    );
+    const onSubmit = (e) => e.preventDefault();
 
     return(
         <ErrorBoundary>
@@ -65,7 +65,5 @@ function SecondForm() {
                 </div>
             </Form>
         </ErrorBoundary>
-    )
+    );
 }
-
-export default SecondForm

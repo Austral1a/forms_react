@@ -1,5 +1,5 @@
-import {saveValueReducer} from '../reducer'
-import {saveValues} from '../action'
+import {saveValueReducer} from '../reducer';
+import {saveValues} from '../action';
 
 describe('save values reducer', () => {
     const firstName = 'Kyle'
@@ -13,10 +13,10 @@ describe('save values reducer', () => {
             lastName: '',
             email: '',
             phone: ''
-        }
+        };
 
-        expect(saveValueReducer(undefined, {})).toStrictEqual(initState)
-    })
+        expect(saveValueReducer(undefined, {})).toStrictEqual(initState);
+    });
 
     it('must handle SAVE_VALUES_IN_STORE', () => {
         const expectedObj = {
@@ -24,10 +24,9 @@ describe('save values reducer', () => {
             lastName: lastName,
             email: email,
             phone: phone
-        }
-        const args = [firstName, lastName, email, phone]
+        };
+        const args = [firstName, lastName, email, phone];
 
-        expect(saveValueReducer({}, saveValues(...args))).toStrictEqual(expectedObj)
-    })
-
-})
+        expect(saveValueReducer({}, saveValues(...args))).toStrictEqual(expectedObj);
+    });
+});

@@ -1,29 +1,28 @@
-import {COUNTRY_SELECT_CHANGE, PLAN_SELECT_CHANGE} from './index'
+import {COUNTRY_SELECT_CHANGE, PLAN_SELECT_CHANGE} from './index';
 
 export const initState = {
     country: 'us',
     plan: 'free'
-}
+};
 
-const secondFormReducer = (state = initState, action) => {
+export const secondFormReducer = (state = initState, action) => {
     switch (action.type) {
         case COUNTRY_SELECT_CHANGE:
-            const {payload: {country}} = action
+            const {payload: {country}} = action;
 
             return {
                 ...state,
                 country: country
-            }
+            };
         case PLAN_SELECT_CHANGE:
-            const {payload: {plan}} = action
+            const {payload: {plan}} = action;
 
             return {
                 ...state,
                 plan: plan
-            }
+            };
         default:
-            return state
+            return state;
     }
-}
+};
 
-export default secondFormReducer

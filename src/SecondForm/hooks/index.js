@@ -1,1 +1,1 @@
-export * from './useExtractValues'
+export * from './useExtractValues';

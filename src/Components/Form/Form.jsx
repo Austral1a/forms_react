@@ -1,6 +1,6 @@
-import React from 'react'
-import classNames from 'classnames/dedupe'
-import './Form.scss'
+import React from 'react';
+import classNames from 'classnames/dedupe';
+import './Form.scss';
 
 export function Form({
     children,
@@ -9,7 +9,7 @@ export function Form({
     className,
     isValid
     }) {
-    const customClasses = classNames('form', className, {'form_success': isValid})
+    const customClasses = classNames('form', className, {'form_success': isValid});
     return(
         <form
             className={customClasses}
@@ -18,5 +18,5 @@ export function Form({
         >
             {children}
         </form>
-    )
+    );
 }

@@ -1,1 +1,1 @@
-export * from './isInputValid'
+export * from './isInputValid';
