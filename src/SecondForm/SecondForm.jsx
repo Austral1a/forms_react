@@ -1,5 +1,4 @@
 import React, {useCallback} from 'react'
-import './SecondForm.scss'
 import {useDispatch} from 'react-redux'
 import {Form, Button, Card, Select, Option} from '../Components'
 import {subscriptions, getPrice, translations} from '../helpers'
