@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo, useCallback} from 'react'
+import React from 'react'
 import classNames from 'classnames'
 import './Input.scss'
 
@@ -19,22 +19,20 @@ export const Input = React.forwardRef((
     },
     ref,
 ) => {
-    const customClasses = classNames('input-container', className)
+    const customClassesContainer = classNames('input-container', className)
+    const customClassesInput = classNames('input-container__input', {'input-container_error': hasError && !!value})
     return(
-        <div className={customClasses}>
+        <div className={customClassesContainer}>
             {icon && <span className='input-container__icon'><img src={icon}/></span>}
             <input
                 ref={ref}
                 type={type}
                 placeholder={placeholder}
-                className='input-container__input'
+                className={customClassesInput}
                 onChange={onChange}
                 onInput={onInput}
                 onBlur={onBlur}
                 value={value}
-                style={{
-                    borderBottom: hasError && !!value ? '2px solid red' : 'inherit'
-                }}
                 disabled={disabled}
                 onFocus={onFocus}
             />
