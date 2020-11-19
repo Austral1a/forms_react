@@ -1,15 +1,13 @@
 import {validationMessages as msg, phoneMask} from '../helpers'
-import {Form, Input, Button} from '../Components'
-import {saveValues} from '../Store/FirstForm'
-import {Link} from 'react-router-dom'
 import {useState, useEffect, useCallback} from 'react'
-import {useDispatch} from 'react-redux'
 import {useExtractValues, useValidations} from './index'
-import {routes} from '../routes'
+import {phoneSvg, emailSvg, userSvg} from '../assets'
+import {Form, Input, Button} from '../Components'
 import {ErrorBoundary} from '../ErrorBoundary'
-import emailSvg from '../assets/email.svg'
-import userSvg from '../assets/user.svg'
-import phoneSvg from '../assets/phone.svg'
+import {saveValues} from '../Store/FirstForm'
+import {useDispatch} from 'react-redux'
+import {Link} from 'react-router-dom'
+import {routes} from '../routes'
 
 export function FirstForm() {
     const {
