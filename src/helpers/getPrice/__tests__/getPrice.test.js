@@ -1,4 +1,4 @@
-import {sub, getPrice} from '../index'
+import {getPrice, subscriptions as sub} from '../../index'
 describe('getPrice function must return appropriate subscription', () => {
     const plans = {
         free: 'free',

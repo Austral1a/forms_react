@@ -8,6 +8,7 @@ import {saveValues} from '../Store/FirstForm'
 import {useDispatch} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {routes} from '../routes'
+import './FirstForm.scss'
 
 export function FirstForm() {
     const {

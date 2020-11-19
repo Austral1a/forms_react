@@ -2,7 +2,6 @@ import React from 'react'
 import classNames from 'classnames/dedupe'
 import './Card.scss'
 
-
 export function Card({
     style,
     className,

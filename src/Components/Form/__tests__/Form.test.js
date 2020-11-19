@@ -1,7 +1,13 @@
 import {shallow} from 'enzyme'
-import Form from '../Form'
+import {Form} from '../Form'
+import toJson from 'enzyme-to-json'
 
 describe('Form component', () => {
+    it('Form must match snapshot', () => {
+        const wrapper = shallow(<Form />)
+        expect(toJson(wrapper)).toMatchSnapshot()
+    })
+
     it('must render children', () => {
         const text = 'children'
         const wrapper = shallow(<Form><p>{text}</p></Form>)

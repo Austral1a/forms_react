@@ -1,7 +1,13 @@
 import {shallow} from 'enzyme'
-import Option from '../Option'
+import {Option} from '../Option'
+import toJson from 'enzyme-to-json'
 
 describe('Option component', () => {
+    it('Option must match snapshot', () => {
+        const wrapper = shallow(<Option />)
+        expect(toJson(wrapper)).toMatchSnapshot()
+    })
+
     it("must render option's inner text", () => {
         const text = 'this is options'
         const wrapper = shallow(<Option text={text} />)

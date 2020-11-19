@@ -1,10 +1,7 @@
-import Input from '../Input'
-import React from 'react'
+import {Input} from '../Input'
 import {shallow} from 'enzyme'
 import toJson from 'enzyme-to-json'
-import patterns from '../../../helpers/patterns'
-import isInputValid from '../../../helpers/isInputValid/isInputValid'
-
+import {isInputValid, patterns} from '../../../helpers'
 describe('Input component', function () {
 
     let wrapper

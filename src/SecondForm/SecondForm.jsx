@@ -7,6 +7,7 @@ import {useExtractValues} from './index'
 import {routes} from '../routes'
 import {ErrorBoundary} from '../ErrorBoundary'
 import {Link} from 'react-router-dom'
+import './SecondForm.scss'
 
 function SecondForm() {
 

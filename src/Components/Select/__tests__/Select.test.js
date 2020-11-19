@@ -1,7 +1,13 @@
-import Select from '../Select'
+import {Select} from '../Select'
 import {shallow} from 'enzyme'
+import toJson from 'enzyme-to-json'
 
 describe("Select component", () => {
+    it('Select must match snapshot', () => {
+        const wrapper = shallow(<Select />)
+        expect(toJson(wrapper)).toMatchSnapshot()
+    })
+
     it("must render children", () => {
         const children = <option value="1">1</option>
         const wrapper = shallow(<Select>{children}</Select>)

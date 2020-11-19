@@ -1,7 +1,14 @@
-// import Button from '../Button'
+import {Button} from '../Button'
 import {shallow} from 'enzyme'
+import toJson from 'enzyme-to-json'
 
 describe('Button Component', () => {
+
+    it('Button must match snapshot', () => {
+        const wrapper = shallow(<Button />)
+        expect(toJson(wrapper)).toMatchSnapshot()
+    })
+
     it("must accurate manage 'className' prop", () => {
         const className = 'btn-xs'
         const btnXs = shallow(<Button className={className} />)
@@ -15,8 +22,6 @@ describe('Button Component', () => {
         const wrapper = shallow(<Button disabled={true} />)
 
         expect(wrapper.find('button').prop('disabled')).toBe(true)
-        expect(wrapper.find('button').prop('disabled')).not.toBe('true')
-        expect(wrapper.find('button').prop('disabled')).not.toBe(false)
     })
 
     it("must accurate manage 'onClick' prop", () => {
@@ -31,10 +36,10 @@ describe('Button Component', () => {
         const wrapper = shallow(<Button onClick={onClick} />)
 
         expect(state.value).toBe(initValue)
-        expect(state.value).not.toBe(newValue)
+
         wrapper.find('button').simulate('click')
         expect(state.value).toBe(newValue)
-        expect(state.value).not.toBe(initValue)
+
     })
 
     it("must render text of 'text' prop", () => {
@@ -46,6 +51,5 @@ describe('Button Component', () => {
     it("must not render text of text 'text' prop", () => {
         const wrapper = shallow(<Button />)
         expect(wrapper.find('button').text()).toBe('')
-        expect(wrapper.find('button').text()).not.toBe(undefined)
     })
 })
