@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import './Input.scss';
+import {render} from '@testing-library/react'
 
 export const Input = React.forwardRef((
     {
@@ -19,8 +20,9 @@ export const Input = React.forwardRef((
     },
     ref,
 ) => {
+    const renderError = hasError && !!value
     const customClassesContainer = classNames('input-container', className);
-    const customClassesInput = classNames('input-container__input', {'input-container__input_error': hasError && !!value});
+    const customClassesInput = classNames('input-container__input', {'input-container__input_error': renderError});
     return(
         <div className={customClassesContainer}>
             {icon && <span className='input-container__icon'><img src={icon}/></span>}
@@ -36,7 +38,7 @@ export const Input = React.forwardRef((
                 disabled={disabled}
                 onFocus={onFocus}
             />
-            {hasError && !!value && <p className='input-container__error'>{errorMessage}</p>}
+            {renderError && <p className='input-container__error'>{errorMessage}</p>}
         </div>
     );
 });
