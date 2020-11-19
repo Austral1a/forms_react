@@ -1,5 +1,5 @@
 import {countryChange, planChange} from '../actions';
-import secondFormReducer from '../reducer';
+import {secondFormReducer} from '../reducer';
 
 describe('Second Form reducer', () => {
     const initState = {
