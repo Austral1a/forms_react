@@ -20,7 +20,7 @@ export const Input = React.forwardRef((
     ref,
 ) => {
     const customClassesContainer = classNames('input-container', className)
-    const customClassesInput = classNames('input-container__input', {'input-container_error': hasError && !!value})
+    const customClassesInput = classNames('input-container__input', {'input-container__input_error': hasError && !!value})
     return(
         <div className={customClassesContainer}>
             {icon && <span className='input-container__icon'><img src={icon}/></span>}
