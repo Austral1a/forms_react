@@ -21,17 +21,21 @@ describe('Second Form reducer', () => {
     });
 
     it('must handle COUNTRY_SELECT_CHANGE', () => {
-        expect(secondFormReducer({}, countryChange(newCountry.country))).toStrictEqual(newCountry);
+        const {country} = newCountry
+        expect(secondFormReducer({}, countryChange(country))).toStrictEqual(newCountry);
     });
 
     it('must handle PLAN_SELECT_CHANGE', () => {
-        expect(secondFormReducer({}, planChange(newPlan.plan))).toStrictEqual(newPlan);
+        const {plan} = newPlan
+        expect(secondFormReducer({}, planChange(plan))).toStrictEqual(newPlan);
     });
 
     it('must handle whole actions', () => {
+        const {country} = newCountry
+        const {plan} = newPlan
         const returnedState = {
-            ...secondFormReducer({}, countryChange(newCountry.country)),
-            ...secondFormReducer({}, planChange(newPlan.plan))
+            ...secondFormReducer({}, countryChange(country)),
+            ...secondFormReducer({}, planChange(plan))
         };
         expect(returnedState).toStrictEqual(newState);
     });
