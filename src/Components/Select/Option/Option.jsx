@@ -1,5 +1,5 @@
-import React from 'react'
-import classNames from 'classnames/dedupe'
+import React from 'react';
+import classNames from 'classnames/dedupe';
 
 export function Option({
     value,
@@ -14,6 +14,5 @@ export function Option({
         >
             {text}
         </option>
-    )
+    );
 }
-

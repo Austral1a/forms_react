@@ -1,6 +1,6 @@
-import React from 'react'
-import classNames from 'classnames'
-import './Input.scss'
+import React from 'react';
+import classNames from 'classnames';
+import './Input.scss';
 
 export const Input = React.forwardRef((
     {
@@ -19,8 +19,8 @@ export const Input = React.forwardRef((
     },
     ref,
 ) => {
-    const customClassesContainer = classNames('input-container', className)
-    const customClassesInput = classNames('input-container__input', {'input-container__input_error': hasError && !!value})
+    const customClassesContainer = classNames('input-container', className);
+    const customClassesInput = classNames('input-container__input', {'input-container__input_error': hasError && !!value});
     return(
         <div className={customClassesContainer}>
             {icon && <span className='input-container__icon'><img src={icon}/></span>}
@@ -38,5 +38,5 @@ export const Input = React.forwardRef((
             />
             {hasError && !!value && <p className='input-container__error'>{errorMessage}</p>}
         </div>
-    )
-})
+    );
+});

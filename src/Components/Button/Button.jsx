@@ -1,6 +1,6 @@
-import React from 'react'
-import classNames from 'classnames/dedupe'
-import './Button.scss'
+import React from 'react';
+import classNames from 'classnames/dedupe';
+import './Button.scss';
 
 export function Button({
     text,
@@ -8,10 +8,10 @@ export function Button({
     disabled,
     className
 }) {
-    const customClasses = classNames('button', className)
+    const customClasses = classNames('button', className);
     return (
         <button className={customClasses} onClick={onClick} disabled={disabled}>
             {text}
         </button>
-    )
+    );
 }

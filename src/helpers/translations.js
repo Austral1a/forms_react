@@ -33,4 +33,4 @@ export const translations = {
             errMessage: "Phone must be appropriate to '(123) 456 - 7890'"
         }
     }
-}
+};

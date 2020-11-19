@@ -8,4 +8,4 @@ export const patternNames = {
     name: 'name',
     email: 'email',
     phone: 'phone'
-}
+};
