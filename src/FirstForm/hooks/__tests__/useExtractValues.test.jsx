@@ -4,7 +4,7 @@ import * as reactRedux from 'react-redux'
 import {renderHook} from '@testing-library/react-hooks'
 
 
-describe('', () => {
+describe('useExtractValue hook', () => {
     let store
     let wrapper
     let values
