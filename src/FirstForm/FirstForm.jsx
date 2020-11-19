@@ -48,6 +48,11 @@ export function FirstForm() {
     const emailChange = e => setEmailState(e.target.value);
     const phoneChange = e => setPhoneState(e.target.value);
 
+    const firstNameBlur = () => isFirstNameValid
+    const lastNameBlur = () => isLastNameValid
+    const emailBlur = () => isEmailValid
+    const phoneBlur = () => isPhoneValid
+
     const {inputs: {firstNameT, emailT, lastNameT, phoneT}} = translations;
     const isBtnDisabled = Object.values(formErrors).includes(false);
     return(
@@ -62,7 +67,7 @@ export function FirstForm() {
                 <Input
                     type='text'
                     placeholder={firstNameT.placeholder}
-                    onBlur={isFirstNameValid}
+                    onBlur={firstNameBlur}
                     onChange={firstNameChange}
                     value={firstNameState}
                     hasError={!formErrors.isFirstNameValid}
@@ -73,7 +78,7 @@ export function FirstForm() {
                 <Input
                     type='text'
                     placeholder={lastNameT.placeholder}
-                    onBlur={isLastNameValid}
+                    onBlur={lastNameBlur}
                     onChange={lastNameChange}
                     value={lastNameState}
                     hasError={!formErrors.isLastNameValid}
@@ -84,7 +89,7 @@ export function FirstForm() {
                 <Input
                     type='text'
                     placeholder={emailT.placeholder}
-                    onBlur={isEmailValid}
+                    onBlur={emailBlur}
                     onChange={emailChange}
                     value={emailState}
                     hasError={!formErrors.isEmailValid}
@@ -96,7 +101,7 @@ export function FirstForm() {
                     type='text'
                     placeholder={phoneT.placeholder}
                     onInput={phoneMask}
-                    onBlur={isPhoneValid}
+                    onBlur={phoneBlur}
                     onChange={phoneChange}
                     value={phoneState}
                     hasError={!isPhoneValid}
